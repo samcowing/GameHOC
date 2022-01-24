@@ -22,12 +22,19 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: false}))
 
 
+/*****************************/
+/*        Controllers        */
+/*****************************/
+app.use('/games', gamesController)
+app.use('/collections', collectionsController)
+
+
 /****************************/
 /*        Home Route        */
 /****************************/
 app.get('/', (req, res)=>{
     console.log('hitting home route')
-    res.send('home route')
+    res.render('home.ejs')
 })
 
 
