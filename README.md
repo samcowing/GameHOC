@@ -17,7 +17,7 @@
 
     ![Insert Image here](https://i.imgur.com/znYoG7n.png)
 
-    - Figma Link:
+    - Figma Link: (https://www.figma.com/file/MXjOQCxlmF8a7gr5v8Lu8C/Project-2-Wireframe?node-id=0%3A1)
 
 * **User Stories**
     - As a user I want to find games I'm interested in by navigating threw categories so that I can determine if there are games I would like to buy
