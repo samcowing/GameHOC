@@ -9,13 +9,11 @@ const PORT = 8000
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
-mongoose.connect('mongodb://127.0.0.1/games')
-
 /*********************************/
 /*        Mongoose Config        */
 /*********************************/
 const mongoose = require('mongoose')
-const mongoURI = 'mongodb://127.0.0.1:27017/gamehoc'
+const mongoURI = 'mongodb://127.0.0.1:27017/games'
 
 mongoose.connect(mongoURI)
 mongoose.connection.on('connected', () => {
