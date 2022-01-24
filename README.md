@@ -52,6 +52,7 @@
     ![Insert Image here](https://i.imgur.com/oWl7SAt.png)
 
 * **Routing Charts**
+
 Home Routes
 
 |#|Action|Functionality|URL|Method|Views|
@@ -68,24 +69,34 @@ Categories Routes
 
 |#|Action|Functionality|URL|Method|Views|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|1| Index | Display all games in a given category | /categories | GET | index.ejs |
-|2| Show | Display a single game | /categories/:id | GET | show.ejs |
+|1| Index | Display all games in a given category | /categories | GET | categories/index.ejs |
+|2| Show | Display a single game | /categories/:id | GET | categories/show.ejs |
 |3| New |||||
-|4| Create |||||
+|4| Create | Add a new game to the database | /categories | POST | redirect to /categories |
 |5| Edit |||||
 |6| Update |||||
 |7| Destroy ||||||
+
+Collection Routes
+
+|#|Action|Functionality|URL|Method|Views|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|1| Index | Display all wishlists | /collection | GET | collection/index.ejs |
+|2| Show | Display a single wishlist | /collection/:id | GET | redirect to /wishlist/:id
+|3| New | Create a new wishlist | /collection/new | GET | collection/new.ejs
+|4| Create | Add a new wishlist to the collection | /collection | POST | redirect to /collection
+|5| Edit | Edit the wishlist name and description | /collection/:id | GET | collection/edit.ejs
+|6| Update | Update a wishlist | /collection/:id | PUT | redirect to collection/index.ejs
+|7| Destroy | Delete a wishlist | /collection/:id | DELETE | redirect to /collection
 
 Wishlist Routes
 
 |#|Action|Functionality|URL|Method|Views|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|1| Index | Display all user created collections | /collections | GET | collection/index.ejs |
-|2| Show | Display a single collection | /collection/:id | GET | /collection/show.ejs |
-|3| New | Create a new collection | /collection/new | GET | /collection/new.ejs |
-|4| Create | Add a new collection to collections list | /collection | POST | /collections.ejs |
-|5| Edit | Edit a collection | /collection/:id/edit | GET | /collection/edit.ejs |
-|6| Update | Update the edited collection | /collection/:id | PATCH/PUT | /collection/show.ejs |
-|7| Destroy | Delete a collection | /collection/:id | DELETE | /collections.ejs |
-
-    
+|1| Index | Display all games in a wishlist | /wishlist | GET | wishlists/index.ejs
+|2| Show | Display a single game in the wishlist | /wishlist/:id | GET | wishlists/show.ejs
+|3| New ||||
+|4| Create | Add a new game to the wishlist | /wishlist | POST | redirect to wishlist/index.ejs
+|5| Edit ||||
+|6| Update ||||
+|7| Destroy | Delete a game from the wishlist | /wishlist/:id | DELETE | redirect to wishlist/index.ejs
