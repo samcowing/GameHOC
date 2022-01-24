@@ -1,4 +1,5 @@
 const express = require('express');
+const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
 const Game = require('./models/Game.js')
 const app = express()
@@ -16,6 +17,8 @@ const options = {
     method: 'GET'
 };g
 */
+
+
 
 function categorySelect () {
     let type = "genres"
@@ -78,6 +81,12 @@ app.get('/', function (req, res){
       }
     });
 });
+
+app.post('/categories/:type/:id', (req, res) => {
+    categorySelect(req.params.type,req.params.id)
+    //pokemon.push(req.body)
+    res.redirect('/categories');
+})
 
 app.listen(3000, function(){
   console.log('Listening on port 3000')

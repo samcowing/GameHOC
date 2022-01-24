@@ -7,6 +7,9 @@ const collectionsController = require('./controllers/collections')
 
 const PORT = 8000
 
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
+mongoose.connect('mongodb://127.0.0.1/games')
 
 /************************/
 /*        Config        */
