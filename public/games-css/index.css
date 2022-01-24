@@ -7,10 +7,17 @@ body {
 
 .header {
     color: white;
+    box-shadow: 1px 9px 7px -4px rgba(0,0,0,0.7);
+    position: relative;
 }
 
-.header-title {
+.body-title {
     text-align: center;
+    margin-top: 10px;
+}
+
+.body-head-container {
+    color: white;
 }
 
 .genre-desc-title {
@@ -26,15 +33,86 @@ body {
     font-size: 20px;
     font-family: 'Ubuntu', cursive;
     font-weight: 400;
+    text-align: center;
 }
 
 .logo-title {
     color: white;
     font-size: 18px;
-    left: 30px;
 }
 
 .logo-img {
     width: 45px;
     height: 45px;
+}
+
+.nav-menu {
+    color: white;
+    font-size: 26px;
+}
+
+.nav-a {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.nav-a:hover {
+    text-decoration: none;
+}
+
+.genre-btn-forms {
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.genre-btn {
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    width: 80px;
+    padding: 3px;
+}
+
+.genre-btn:focus {
+    background-color: rgba(146, 146, 146, 0.63);
+    color: rgb(54, 54, 54);
+    transition: all 0.2s ease-in;
+}
+
+.card {
+    margin: 0 auto;
+    width: 400px;
+    background-color: rgb(97, 97, 97);
+    border: 2px solid white;
+    border-radius: 8px;
+    color: white;
+}
+
+.card-body {
+    position: relative;
+}
+
+.image {
+    border-radius: 8px 8px 0 0;
+}
+
+.release-date {
+    position: absolute;
+    right: 20px;
+    top: 63px;
+}
+
+hr {
+    margin-top: -10px;
+    border-top: 1px solid rgba(65, 65, 65, 0.8);
+}
+
+.genre-names {
+    display: inline-block;
 }

@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Game = require('../models/Game')
 
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 function categorySelect(type, categoryId) {
     const requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + categoryId
@@ -10,8 +10,7 @@ function categorySelect(type, categoryId) {
     return requestURL
 }
 
-function clearDB()
-{
+function clearDB() {
     return new Promise((resolve, reject) => {
         Game.deleteMany({}, (err, deleteCount) => {
             if (err) {
@@ -61,7 +60,7 @@ router.get('/', (req, res) => {
 /****************************/
 /*        Show Route        */
 /****************************/
-router.get('/:id',(req, res)=> {
+router.get('/:id', (req, res) => {
     Game.findById(req.params.id, (err, foundGame) => {
         if (err) return res.send(err)
         res.render('games/show.ejs', { game: foundGame })
@@ -72,8 +71,8 @@ router.get('/:id',(req, res)=> {
 /*        Create Route       */
 /*****************************/
 
-router.post('/:type/:id', (req, res)=> {
-    categorySelect(req.params.type,req.params.id)
+router.post('/:type/:id', (req, res) => {
+    categorySelect(req.params.type, req.params.id)
     res.redirect('/games');
 })
 
