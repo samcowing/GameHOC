@@ -1,4 +1,5 @@
 const express = require('express');
+const { type } = require('express/lib/response');
 const mongoose = require('mongoose');
 const Game = require('./models/Game.js')
 const app = express()
