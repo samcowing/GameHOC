@@ -1,0 +1,27 @@
+{
+  "name": "gamehoc",
+  "version": "1.0.0",
+  "description": "## GameHOC Pitch: * **Team: It Works on Local**     - Joshua Hovis     - David Oliveros     - Sam Cowing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samcowing/GameHOC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samcowing/GameHOC/issues"
+  },
+  "homepage": "https://github.com/samcowing/GameHOC#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.1.7",
+    "node-fetch": "^3.2.0"
+  }
+}
