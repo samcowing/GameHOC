@@ -10,6 +10,12 @@
 
 <body>
     <h1>Main Games Page</h1>
+    <% for (let i = 0; i < game.length; i++) { %>
+    <img src="<%= game[i].background_image %>" style="width:300px;"/>
+    <p><%= game[i].name %></p>
+    <p><%= game[i].released %></p>
+    <p><%= game[i].rating %></p>
+    <% } %>
 
 </body>
 
