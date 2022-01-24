@@ -15,7 +15,10 @@
 
 * **Wirefames**
 
-    ![Insert Image here](https://i.imgur.com/znYoG7n.png)
+    ![Insert Image here](https://i.imgur.com/nMnpJsY.png)
+    ![Insert Image here](https://i.imgur.com/dfoVNzc.png)
+    ![Insert Image here](https://i.imgur.com/zBK1tIc.png)
+    ![Insert Image here](https://i.imgur.com/Zoq8xuk.png)
 
     - Figma Link: (https://www.figma.com/file/MXjOQCxlmF8a7gr5v8Lu8C/Project-2-Wireframe?node-id=0%3A1)
 
