@@ -8,6 +8,18 @@ const collectionsController = require('./controllers/collections')
 const PORT = 8000
 
 
+/*********************************/
+/*        Mongoose Config        */
+/*********************************/
+const mongoose = require('mongoose')
+const mongoURI = 'mongodb://127.0.0.1:27017/gamehoc'
+
+mongoose.connect(mongoURI)
+mongoose.connection.on('connected', () => {
+    console.log('connected to mongoDB')
+})
+
+
 /************************/
 /*        Config        */
 /************************/
@@ -22,12 +34,19 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: false}))
 
 
+/*****************************/
+/*        Controllers        */
+/*****************************/
+app.use('/games', gamesController)
+app.use('/collections', collectionsController)
+
+
 /****************************/
 /*        Home Route        */
 /****************************/
 app.get('/', (req, res)=>{
     console.log('hitting home route')
-    res.send('home route')
+    res.render('home.ejs')
 })
 
 
