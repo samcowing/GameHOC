@@ -35,7 +35,7 @@ router.get('/:id',(req, res)=> {
 /****************************/
 router.get('/:id/edit', (req, res) => {
     Collection.findById(req.params.id, (err, collectionToEdit) => {
-        if (err) return req.send(err)
+        if (err) return res.send(err)
         res.render('collection/edit.ejs', { collection: collectionToEdit })
     })
 })
