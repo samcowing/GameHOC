@@ -1,23 +1,11 @@
-## Your pitch must include:
-* **A Project Repo**
-  - Choose a git project owner who will create the git repo under their personal GitHub account
-  - Project name must be unique and represent the app! Not "Project-2"
-* **A `README.md`**
-  - You can find a guide to how to use markdown syntax [here](https://guides.github.com/features/mastering-markdown/).
-  - Your pitch README should include the following:
-    - App name
-    - Short app description
-    - Basic low-fidelity wireframes
-    - User stories
-    - MVP goals list
-    - Stretch goals list
-    - Database ERD diagrams
-    - RESTful routing chart for each database resource
-  - Article: [How to Write a Good README File](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
+# Project Two
 
-
-------------------
 ## GameHOC Pitch:
+* **Team: It Works on Local**
+    - Joshua Hovis
+    - David Oliveros
+    - Sam Cowing
+
 * **App Name**
     - GameHOC
 
@@ -61,37 +49,37 @@
     ![Insert Image here](https://i.imgur.com/oWl7SAt.png)
 
 * **Routing Charts**
-    - Home Routes
-    |#|Action|Functionality|URL|Method|Views|
-    |:---:|:---:|:---:|:---:|:---:|:---:|
-    |1| Index | Display a handful of the trending games | / | GET | index.ejs |
-    |2| Show |||||
-    |3| New |||||
-    |4| Create |||||
-    |5| Edit |||||
-    |6| Update |||||
-    |7| Destroy ||||||
+- Home Routes
+|#|Action|Functionality|URL|Method|Views|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|1| Index | Display a handful of the trending games | / | GET | index.ejs |
+|2| Show |||||
+|3| New |||||
+|4| Create |||||
+|5| Edit |||||
+|6| Update |||||
+|7| Destroy ||||||
 
-    - Categories Routes
-    |#|Action|Functionality|URL|Method|Views|
-    |:---:|:---:|:---:|:---:|:---:|:---:|
-    |1| Index | Display all games in a given category | /categories | GET | index.ejs |
-    |2| Show | Display a single game | /categories/:id | GET | show.ejs |
-    |3| New |||||
-    |4| Create |||||
-    |5| Edit |||||
-    |6| Update |||||
-    |7| Destroy ||||||
+- Categories Routes
+|#|Action|Functionality|URL|Method|Views|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|1| Index | Display all games in a given category | /categories | GET | index.ejs |
+|2| Show | Display a single game | /categories/:id | GET | show.ejs |
+|3| New |||||
+|4| Create |||||
+|5| Edit |||||
+|6| Update |||||
+|7| Destroy ||||||
 
-    - Wishlist Routes
-    |#|Action|Functionality|URL|Method|Views|
-    |:---:|:---:|:---:|:---:|:---:|:---:|
-    |1| Index | Display all user created collections | /collections | GET | collection/index.ejs |
-    |2| Show | Display a single collection | /collection/:id | GET | /collection/show.ejs |
-    |3| New | Create a new collection | /collection/new | GET | /collection/new.ejs |
-    |4| Create | Add a new collection to collections list | /collection | POST | /collections.ejs |
-    |5| Edit | Edit a collection | /collection/:id/edit | GET | /collection/edit.ejs |
-    |6| Update | Update the edited collection | /collection/:id | PATCH/PUT | /collection/show.ejs |
-    |7| Destroy | Delete a collection | /collection/:id | DELETE | /collections.ejs |
+- Wishlist Routes
+|#|Action|Functionality|URL|Method|Views|
+|:---:|:---:|:---:|:---:|:---:|:---:|
+|1| Index | Display all user created collections | /collections | GET | collection/index.ejs |
+|2| Show | Display a single collection | /collection/:id | GET | /collection/show.ejs |
+|3| New | Create a new collection | /collection/new | GET | /collection/new.ejs |
+|4| Create | Add a new collection to collections list | /collection | POST | /collections.ejs |
+|5| Edit | Edit a collection | /collection/:id/edit | GET | /collection/edit.ejs |
+|6| Update | Update the edited collection | /collection/:id | PATCH/PUT | /collection/show.ejs |
+|7| Destroy | Delete a collection | /collection/:id | DELETE | /collections.ejs |
 
     
