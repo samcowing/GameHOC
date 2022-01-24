@@ -5,48 +5,56 @@ const Game = require('../models/Game')
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 function categorySelect(type, categoryId) {
-    requestUrl = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + categoryId
-    console.log(requestUrl)
-    main()
+    const requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + categoryId
+    console.log(requestURL)
+    return requestURL
 }
 
-categorySelect("null", "3")
+function clearDB() {
+    return new Promise((resolve, reject) => {
+        Game.deleteMany({}, (err, deleteCount) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(`Deleted return ${deleteCount}`)
+                resolve()
+            }
+        })
+    })
+}
 
-function main() {
-    Game.deleteMany({}, (err, deleteCount) => {
-        if (err) {
-            console.log(err)
-        } else {
-            console.log(`Deleted return ${deleteCount}`)
-        }
-        fetch(requestUrl).then((response) => {
+function queryAPI(requestURL) {
+    return new Promise((resolve, reject) => {
+        fetch(requestURL).then((response) => {
             response.json().then((data) => {
-                for (let i = 0; i < data.results.length; i++) {
-                    Game.create(data.results[i], (err, createdGame) => {
-                        if (err) {
-                            console.log(err)
-                        }
-                    })
-                }
+                Game.insertMany(data.results, (err, createdGames) => {
+                    if (err) return console.log(err)
+                    console.log('populating with ' + data.results.length + ' games')
+                    resolve()
+                })
             })
         })
     })
-
 }
+
+
 
 /*****************************/
 /*        Index Route        */
 /*****************************/
 router.get('/', (req, res) => {
-    Game.find({}, function (err, foundGame) {
-        if (err)
-            console.log('Database  error!');
-        else {
-            res.render('games/index', {
-                game: foundGame
-            });
-        }
-    });
+    const query = categorySelect('genres', '51')
+    clearDB().then(() => {
+        queryAPI(query).then(() => {
+            Game.find({}, (err, foundGames) => {
+                if (err) return res.send(err)
+                console.log(foundGames.length)
+                res.render('games/index.ejs', {
+                    game: foundGames
+                })
+            })
+        })
+    })
 })
 
 /****************************/
