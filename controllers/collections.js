@@ -1,36 +1,47 @@
 const express = require('express')
-const app = express()
 const router = express.Router()
 
 
 /*****************************/
 /*        Index Route        */
 /*****************************/
-router.get('/controllers', (req, res)=>res.send('controllers index'))
+router.get('/', (req, res)=> {
+    res.render('collections/index.ejs')
+})
 
 /***************************/
 /*        New Route        */
 /***************************/
-router.get('/new', (req, res) => res.send('controllers new'));
+router.get('/new', (req, res) => {
+    res.render('collections/new.ejs')
+})
 
 /****************************/
 /*        Show Route        */
 /****************************/
-router.get('/:id',(req, res)=>res.send('controllers show:' + req.params.id))
+router.get('/:id',(req, res)=> {
+    res.render('collections/show.ejs')
+})
 
 /******************************/
 /*        Create Route        */
 /******************************/
-router.post('/', (req, res)=>res.send('controllers create'))
+router.post('/', (req, res)=> {
+    res.redirect('/collections')
+})
 
 /******************************/
 /*        Update Route        */
 /******************************/
-router.put('/:id', (req, res) => res.send('controllers update'))
+router.put('/:id', (req, res) => {
+    res.redirect('/games/' + req.params.id)
+})
 
 /*******************************/
 /*        Destroy Route        */
 /*******************************/
-router.delete('/:id', (req, res) => res.send('controllers delete'))
+router.delete('/:id', (req, res) => {
+    res.redirect('/games')
+})
 
 module.exports = router
