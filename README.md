@@ -49,7 +49,8 @@
     ![Insert Image here](https://i.imgur.com/oWl7SAt.png)
 
 * **Routing Charts**
-- Home Routes
+Home Routes
+
 |#|Action|Functionality|URL|Method|Views|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |1| Index | Display a handful of the trending games | / | GET | index.ejs |
@@ -60,7 +61,8 @@
 |6| Update |||||
 |7| Destroy ||||||
 
-- Categories Routes
+Categories Routes
+
 |#|Action|Functionality|URL|Method|Views|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |1| Index | Display all games in a given category | /categories | GET | index.ejs |
@@ -71,7 +73,8 @@
 |6| Update |||||
 |7| Destroy ||||||
 
-- Wishlist Routes
+Wishlist Routes
+
 |#|Action|Functionality|URL|Method|Views|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |1| Index | Display all user created collections | /collections | GET | collection/index.ejs |
