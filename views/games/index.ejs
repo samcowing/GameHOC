@@ -5,18 +5,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="games-css/index.css">
     <title>Games Page</title>
 </head>
 
 <body>
-    <h1>Main Games Page</h1>
-    <% for (let i = 0; i < game.length; i++) { %>
-    <img src="<%= game[i].background_image %>" style="width:300px;"/>
-    <p><%= game[i].name %></p>
-    <p><%= game[i].released %></p>
-    <p><%= game[i].rating %></p>
-    <% } %>
+    <div class="header">
 
+        <div class="logo">
+            <h2 class="logo-title">
+                <img class="logo-img" src="https://i.imgur.com/OOQYC8l.png" alt="">
+                GameHOC
+            </h2>
+        </div>
+
+        <h1 class="header-title">"Genre" Games</h1>
+        <cite class="genre-desc-title">Brief genre description</cite>
+        <p class="genre-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque nihil voluptatem
+            voluptatum
+            est ab perspiciatis
+            ad possimus tenetur veritatis consequuntur. Dignissimos iure sed, eaque architecto hic officiis placeat
+            autem
+            vero?</p>
+    </div>
+
+    <% for (let i=0; i < game.length; i++) { %>
+
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top image" src="<%= game[i].background_image %>" alt="game-image" />
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <%= game[i].name %>
+                    </h4>
+                    <p>
+                        <%= game[i].released %>
+                    </p>
+                    <p>
+                        <%= game[i].rating %>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <% } %>
+
+
+
+
+
+            <!-- BOOTSTRAP -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+                crossorigin="anonymous"></script>
 </body>
 
 </html>

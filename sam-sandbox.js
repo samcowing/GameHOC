@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 const Game = require('./models/Game.js')
 const app = express()
 
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 mongoose.connect('mongodb://127.0.0.1/games')
 
 
 app.set('view engine', 'ejs');
+app.use(express.static('public'))
 
 /*
 let requestUrl = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19";
@@ -18,9 +19,7 @@ const options = {
 };g
 */
 
-
-
-function categorySelect () {
+function categorySelect() {
     let type = "genres"
     let categoryId = "15"
     requestUrl = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19&" + type + "=" + categoryId
@@ -47,8 +46,7 @@ function main() {
                 }
             })
         })
-    })   
-       
+    })
 }
 
 //main()
@@ -56,38 +54,32 @@ categorySelect()
 
 
 
-app.get('/games', function (req, res){
+app.get('/games', function (req, res) {
 
-  Game.find({}, function (err, foundGame){
-    if (err)
-      console.log('Database  error!');
-    else{
-      res.render('games/index', {
-          game: foundGame
-      });
-    }
-  });
-});
-
-app.get('/', function (req, res){
-
-    Game.find({}, function (err, foundGame){
-      if (err)
-        console.log('Database  error!');
-      else{
-        res.render('home', {
-            game: foundGame
-        });
-      }
+    Game.find({}, function (err, foundGame) {
+        if (err)
+            console.log('Database  error!');
+        else {
+            res.render('games/index', {
+                game: foundGame
+            });
+        }
     });
 });
 
-app.post('/categories/:type/:id', (req, res) => {
-    categorySelect(req.params.type,req.params.id)
-    //pokemon.push(req.body)
-    res.redirect('/categories');
-})
+app.get('/', function (req, res) {
 
-app.listen(3000, function(){
-  console.log('Listening on port 3000')
+    Game.find({}, function (err, foundGame) {
+        if (err)
+            console.log('Database  error!');
+        else {
+            res.render('home', {
+                game: foundGame
+            });
+        }
+    });
+});
+
+app.listen(3000, function () {
+    console.log('Listening on port 3000')
 });

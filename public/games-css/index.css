@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgb(15, 15, 15);
+}
+
+.header {
+    color: white;
+}
+
+.header-title {
+    text-align: center;
+}
+
+.genre-desc-title {
+    display: flex;
+    justify-content: center;
+}
+
+.genre-desc {
+    text-align: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-family: 'Ubuntu', cursive;
+    font-weight: 400;
+}
+
+.logo-title {
+    color: white;
+    font-size: 18px;
+    left: 30px;
+}
+
+.logo-img {
+    width: 45px;
+    height: 45px;
+}
