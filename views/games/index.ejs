@@ -53,13 +53,15 @@
 
     <% for (let i=0; i < game.length; i++) { %>
 
+    <% for (let i=0; i < games.length; i++) { %>
+
         <div class="card-deck">
             <div class="card">
-                <img class="card-img-top image" src="<%= game[i].background_image %>" alt="game-image" />
+                <img class="card-img-top image" src="<%= games[i].background_image %>" alt="game-image" />
                 <div class="card-body">
 
                     <h4 class="card-title">
-                        <%= game[i].name %>
+                        <%= games[i].name %>
                     </h4>
 
                     <p class="metacritic">
@@ -136,6 +138,15 @@
                                             <%= game[i].platforms[k].platform.name %>
                                                 <% } %>
                                                     <% } %>
+                    <p class="release-text"> Release Date: </p>
+                    <hr>
+                    <p class="release-date">
+                        <%= games[i].released %>
+                    </p>
+                    <p class="genres-text">Genres: </p>
+                    <% for (let j=0; j < games[i].genres.length; j++) { %>
+                        <p class="genre-names">
+                            <%= games[i].genres[j].name %>
                         </p>
                     </h5>
                     <hr>
