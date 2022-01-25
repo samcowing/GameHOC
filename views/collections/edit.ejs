@@ -11,6 +11,11 @@
 <body>
     <h1>Edit Collection Page</h1>
     <p>Edit collection name and description</p>
+    <form action="/collections/<%=collection._id%>?_method=PUT" method="POST">
+        <input type="text" name="title" value="<%= collection.title %>">
+        <input type="text" name="description" value="<%= collection.description %>">
+        <input type="submit" value="Edit collection">
+    </form>
 
 </body>
 
