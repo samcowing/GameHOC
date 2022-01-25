@@ -13,12 +13,14 @@
     <div>
         <h3><%= collection.title %></h3>
         <p><%= collection.description %></p>
+      
         <% for (let i=0; i < collection.games.length; i++) { %>
             <h3><%= collection.games[i] %></h3>
-            <form action="/collections/<%=collection._id%>/<%=collection.games[i]%>" method="POST">
-                <input type="submit" value="delete this game" >
+            <form action="/collections/<%=collection._id%>/<%=collection.games[i]%>?_method=DELETE" method="POST">
+                <input type="text" name="games" value="<%=collection.games[i]%>">
+                <input type="submit" value="delete this game <%=collection.title%> <%=collection.games[i]%>">
             </form>
-        <% } %>
+        <% } %>  
     </div>
     <div>
         <form method="POST" action="/collections/<%=collection._id%>?_method=DELETE">
