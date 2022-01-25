@@ -1,226 +1,222 @@
-@import url('https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
 body {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: rgb(15, 15, 15);
+  font-family: "Ubuntu", sans-serif;
+  background-color: rgb(15, 15, 15);
 }
 
 .header {
-    color: white;
-    box-shadow: 1px 9px 7px -4px rgba(0,0,0,0.7);
-    position: relative;
+  color: white;
+  box-shadow: 1px 9px 7px -4px rgba(0, 0, 0, 0.7);
+  position: relative;
 }
 
 .body-title {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .body-head-container {
-    color: white;
+  color: white;
 }
 
 .genre-desc-title {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
 .genre-desc {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .logo {
-    font-size: 20px;
-    font-family: 'Ubuntu', cursive;
-    font-weight: 400;
-    text-align: center;
+  font-size: 20px;
+  font-family: "Ubuntu", cursive;
+  font-weight: 400;
+  text-align: center;
 }
 
 .logo-title {
-    color: white;
-    font-size: 18px;
+  color: white;
+  font-size: 18px;
 }
 
 .logo-img {
-    width: 45px;
-    height: 45px;
+  width: 45px;
+  height: 45px;
 }
 
 .nav-menu {
-    color: white;
-    font-size: 26px;
+  color: white;
+  font-size: 26px;
 }
 
 .nav-a {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .nav-a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .genre-btn-forms {
-    display: flex;
-    justify-content: space-evenly;
-    width: 300px;
-    margin: 0 auto;
-    margin-bottom: 15px;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .genre-btn {
-    border: 1px solid white;
-    border-radius: 8px;
-    background-color: transparent;
-    color: white;
-    width: 80px;
-    padding: 3px;
+  border: 1px solid white;
+  border-radius: 8px;
+  background-color: transparent;
+  color: white;
+  width: 80px;
+  padding: 3px;
 }
 
 .genre-btn:focus {
-    background-color: rgba(146, 146, 146, 0.63);
-    color: rgb(54, 54, 54);
-    transition: all 0.2s ease-in;
+  background-color: rgba(146, 146, 146, 0.63);
+  color: rgb(54, 54, 54);
+  transition: all 0.2s ease-in;
 }
 
 .card {
-    margin: 0 auto;
-    width: 400px;
-    background-color: #616161;
-    border: 2px solid white;
-    border-radius: 8px;
-    color: white;
+  margin: 0 auto;
+  width: 300px;
+  background-color: #616161;
+  border: 2px solid white;
+  border-radius: 8px;
+  color: white;
 }
 
 .card-body {
-    position: relative;
+  position: relative;
 }
 
 .card-title {
-    margin-bottom: 5px;
-    width: 300px;
+  margin-bottom: 5px;
+  width: 300px;
 }
 
 .image {
-    border-radius: 8px;
-    box-shadow: 1px 6px 6px -3px rgba(0,0,0,0.5);
+  border-radius: 8px;
+  box-shadow: 1px 6px 6px -3px rgba(0, 0, 0, 0.5);
 }
 
 .release-text {
-    font-size: 14px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
+  font-size: 14px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .release-date {
-    font-size: 14px;
-    font-weight: 400;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 hr {
-    margin-top: -15px;
-    border-top: 1px solid rgba(65, 65, 65, 0.8);
+  margin-top: -15px;
+  border-top: 1px solid rgba(65, 65, 65, 0.8);
 }
 
 .genre-text {
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .genre-names {
-    font-size: 14px;
-    font-weight: 400;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .platform-text {
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .platform-list {
-    font-size: 14px;
-    font-weight: 400;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .heart-link {
-    color: white;
-    font-size: 15px;
-    border: none;
-    border-radius: 8px;
-    background-color: rgb(85, 85, 85);
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(85, 85, 85);
 }
 
-.heart-link:hover, .heart-link:focus {
-    color: white;
-    text-decoration: none;
+.heart-link:hover,
+.heart-link:focus {
+  color: white;
+  text-decoration: none;
 }
 
 .heart-icon {
-    color: white;
+  color: white;
 }
 
 .dropdown-line {
-    width: 80%;
-    margin: 0 auto
+  width: 80%;
+  margin: 0 auto;
 }
 
 .fa-check {
-    color: green;
-    float: right;
+  color: green;
+  float: right;
 }
 
 .metacritic {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    border: 1px solid white;
-    border-radius: 8px;
-    padding: 0 8px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 0 8px;
 }
 
+@media (min-width: 667px) {
+  body {
+    text-align: center;
+  }
 
+  .image {
+    height: 225px;
+  }
 
-@media (min-width: 768px){
-
-    body {
-        text-align: center;
-    }
-
-    .image {
-        height: 225px;
-    }
-    
-    .card-deck {
-        display: inline-flex;
-        width: 25em;
-        margin: auto;
-        margin-bottom: 20px;
-        text-align: left;
-    }
-
+  .card-deck {
+    display: inline-flex;
+    width: 25em;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: left;
+  }
 }
 
+@media (min-width: 1200px) {
+  .nav-a {
+    opacity: 0;
+  }
 
-@media (min-width: 1200px){
-
-    .nav-a {
-        opacity: 0;
-    }
-
-    .card-title {
-        width: 250px;
-        font-size: 22px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        margin-top: -5px;
-    }
-
+  .card-title {
+    width: 250px;
+    font-size: 22px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+  }
 }

@@ -65,7 +65,7 @@ router.get('/', (req, res) => {
                 if (err) return res.send(err)
                 console.log(foundGames.length)
                 res.render('games/index.ejs', {
-                    game: foundGames
+                    games: foundGames
                 })
             })
         })
