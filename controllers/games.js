@@ -4,8 +4,23 @@ const Game = require('../models/Game')
 
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-function categorySelect(type, categoryId) {
-    const requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + categoryId
+
+/***************************/
+/*        Variables        */
+/***************************/
+
+
+/*****************************/
+/*        API Request        */
+/*****************************/
+function categorySelect(type, categoryId = '') {
+    let requestURL = ''
+    if (categoryId === '')
+    {
+        requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
+    } else {
+        requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + categoryId
+    }
     console.log(requestURL)
     return requestURL
 }
@@ -43,7 +58,7 @@ function queryAPI(requestURL) {
 /*        Index Route        */
 /*****************************/
 router.get('/', (req, res) => {
-    const query = categorySelect('genres', '51')
+    const query = categorySelect('genres', '')
     clearDB().then(() => {
         queryAPI(query).then(() => {
             Game.find({}, (err, foundGames) => {
