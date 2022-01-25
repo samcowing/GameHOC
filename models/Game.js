@@ -1,4 +1,4 @@
-const mongoose = require('mongoose') 
+const mongoose = require('mongoose')
 
 const gameSchema = new mongoose.Schema({
     id: {
@@ -36,7 +36,7 @@ const gameSchema = new mongoose.Schema({
         type: Number
     },
     platforms: [
-            {
+        {
             platform: {
                 id: Number,
                 name: String,
@@ -46,14 +46,14 @@ const gameSchema = new mongoose.Schema({
         },
     ],
     genres: [
-            {
+        {
             id: Number,
             name: String,
             slug: String,
         },
     ],
     tags: [
-            {
+        {
             id: Number,
             name: String,
             slug: String,

@@ -8,30 +8,40 @@
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="games-css/index.css">
-    <title>Games Page</title>
+    <title>Browse Games</title>
 </head>
 
 <body>
-    <form action="/games/genres/15" method="POST">
-        <input type="submit" value="Sports">
-    </form>
-    <form action="/games/genres/3" method="POST">
-        <input type="submit" value="Action">
-    </form>
-    <form action="/games/genres/11" method="POST">
-        <input type="submit" value="Arcade">
-    </form>
-    <div class="header">
 
+    <div class="header">
+        <a class="nav-a" href="">
+            <i class="fa fa-bars nav-menu"></i>
+        </a>
         <div class="logo">
             <h2 class="logo-title">
                 <img class="logo-img" src="https://i.imgur.com/OOQYC8l.png" alt="">
                 GameHOC
             </h2>
         </div>
+    </div>
 
-        <h1 class="header-title">"Genre" Games</h1>
+    <div class="body-head-container">
+
+        <h1 class="body-title">Browse Games</h1>
+        <div class="genre-btn-forms">
+            <form action="/games/genres/15" method="POST">
+                <input class="genre-btn" type="submit" value="Sports">
+            </form>
+            <form action="/games/genres/3" method="POST">
+                <input class="genre-btn" type="submit" value="Action">
+            </form>
+            <form action="/games/genres/11" method="POST">
+                <input class="genre-btn" type="submit" value="Arcade">
+            </form>
+        </div>
         <cite class="genre-desc-title">Brief genre description</cite>
         <p class="genre-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque nihil voluptatem
             voluptatum
@@ -40,6 +50,7 @@
             autem
             vero?</p>
     </div>
+
 
     <% for (let i=0; i < game.length; i++) { %>
 
@@ -50,12 +61,18 @@
                     <h4 class="card-title">
                         <%= game[i].name %>
                     </h4>
-                    <p>
+                    <p class="release-text"> Release Date: </p>
+                    <hr>
+                    <p class="release-date">
                         <%= game[i].released %>
                     </p>
-                    <p>
-                        <%= game[i].rating %>
-                    </p>
+                    <p class="genres-text">Genres: </p>
+                    <% for (let j=0; j < game[i].genres.length; j++) { %>
+                        <p class="genre-names">
+                            <%= game[i].genres[j].name %>
+                        </p>
+                        <% } %>
+
                 </div>
             </div>
         </div>
