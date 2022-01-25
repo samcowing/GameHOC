@@ -1,11 +1,31 @@
 const express = require('express')
 const router = express.Router()
 const Game = require('../models/Game')
+const mongoose = require('mongoose')
 
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-function categorySelect(type, categoryId) {
-    const requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + categoryId
+
+/***************************/
+/*        Variables        */
+/***************************/
+apiQueryParams = {
+    type: '',
+    id: 0
+}
+
+
+/*****************************/
+/*        API Request        */
+/*****************************/
+function categorySelect(type, categoryId = '') {
+    let requestURL = ''
+    if (categoryId === '')
+    {
+        requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
+    } else {
+        requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + categoryId
+    }
     console.log(requestURL)
     return requestURL
 }
@@ -44,26 +64,37 @@ function queryAPI(requestURL) {
 /*****************************/
 router.get('/', (req, res) => {
     const query = categorySelect('genres', '51')
-    clearDB().then(() => {
-        queryAPI(query).then(() => {
-            Game.find({}, (err, foundGames) => {
-                if (err) return res.send(err)
-                console.log(foundGames.length)
-                res.render('games/index.ejs', {
-                    games: foundGames
-                })
+    fetch(query).then((response) => {
+        response.json().then((data) => {
+            res.render('games/index.ejs', {
+                games: data.results
             })
         })
     })
+//
+//    clearDB().then(() => {
+//        queryAPI(query).then(() => {
+//            Game.find({}, (err, foundGames) => {
+//                if (err) return res.send(err)
+//                res.render('games/index.ejs', {
+//                    games: foundGames
+//                })
+//            })
+//        })
+//    })
 })
 
 /****************************/
 /*        Show Route        */
 /****************************/
 router.get('/:id', (req, res) => {
-    Game.findById(req.params.id, (err, foundGame) => {
-        if (err) return res.send(err)
-        res.render('games/show.ejs', { game: foundGame })
+    const query = categorySelect('id', req.params.id)
+    fetch(query).then((response) => {
+        response.json().then((data) => {
+            res.render('games/show.ejs', {
+                game: data.results[0]
+            })
+        })
     })
 })
 
@@ -73,7 +104,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/:type/:id', (req, res) => {
     categorySelect(req.params.type, req.params.id)
-    res.redirect('/games');
+    apiQueryParams.type = req.params.type
+    apiQueryParams.id = req.params.id
+    res.redirect('/games')
 })
 
 

@@ -10,7 +10,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="games-css/index.css">
+    <link rel="stylesheet" href="/games-css/index.css">
     <title>Browse Games</title>
 </head>
 
@@ -136,6 +136,25 @@
                         <% } else { %>
                         <%= games[i].platforms[k].platform.name %>
                         <% } %>
+    <% for (let i=0; i < games.length; i++) { %>
+
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top image" src="<%= games[i].background_image %>" alt="game-image" />
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <%= games[i].name %>
+                    </h4>
+                    <p class="release-text"> Release Date: </p>
+                    <hr>
+                    <p class="release-date">
+                        <%= games[i].released %>
+                    </p>
+                    <p class="genres-text">Genres: </p>
+                    <% for (let j=0; j < games[i].genres.length; j++) { %>
+                        <p class="genre-names">
+                            <%= games[i].genres[j].name %>
+                        </p>
                         <% } %>
                     </p>
                 </h5>
