@@ -10,7 +10,23 @@
 
 <body>
     <h1>Single Collection Page</h1>
-
+    <div>
+        <h3><%= collection.title %></h3>
+        <p><%= collection.description %></p>
+        <% for (let i=0; i < collection.games.length; i++) { %>
+            <h3><%= collection.games[i] %></h3>
+            <form action="/collections/<%=collection._id%>/<%=collection.games[i]%>" method="POST">
+                <input type="submit" value="delete this game" >
+            </form>
+        <% } %>
+    </div>
+    <div>
+        <form method="POST" action="/collections/<%=collection._id%>?_method=DELETE">
+            <input type="submit" value="delete this collection" >
+        </form>
+        <a href="/collections/<%=collection._id%>/edit">Edit this collection</a> 
+        <a href="/collections/<%=collection._id%>/edit2">Edit2 this collection</a>    
+    </div>
 </body>
 
 </html>
