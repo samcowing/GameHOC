@@ -23,10 +23,12 @@ body {
 .genre-desc-title {
     display: flex;
     justify-content: center;
+    margin-bottom: 5px;
 }
 
 .genre-desc {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .logo {
@@ -88,7 +90,7 @@ body {
 .card {
     margin: 0 auto;
     width: 400px;
-    background-color: rgb(97, 97, 97);
+    background-color: #616161;
     border: 2px solid white;
     border-radius: 8px;
     color: white;
@@ -98,21 +100,127 @@ body {
     position: relative;
 }
 
+.card-title {
+    margin-bottom: 5px;
+    width: 300px;
+}
+
 .image {
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px;
+    box-shadow: 1px 6px 6px -3px rgba(0,0,0,0.5);
+}
+
+.release-text {
+    font-size: 14px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .release-date {
-    position: absolute;
-    right: 20px;
-    top: 63px;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 hr {
-    margin-top: -10px;
+    margin-top: -15px;
     border-top: 1px solid rgba(65, 65, 65, 0.8);
 }
 
+.genre-text {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .genre-names {
-    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.platform-text {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.platform-list {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.heart-link {
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(85, 85, 85);
+}
+
+.heart-link:hover, .heart-link:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.heart-icon {
+    color: white;
+}
+
+.dropdown-line {
+    width: 80%;
+    margin: 0 auto
+}
+
+.fa-check {
+    color: green;
+    float: right;
+}
+
+.metacritic {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 0 8px;
+}
+
+
+
+@media (min-width: 768px){
+
+    body {
+        text-align: center;
+    }
+
+    .image {
+        height: 225px;
+    }
+    
+    .card-deck {
+        display: inline-flex;
+        width: 25em;
+        margin: auto;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+}
+
+
+@media (min-width: 1200px){
+
+    .nav-a {
+        opacity: 0;
+    }
+
+    .card-title {
+        width: 250px;
+        font-size: 22px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        margin-top: -5px;
+    }
+
 }
