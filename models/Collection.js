@@ -1,15 +1,15 @@
 const mongoose = require('mongoose') 
 
 const collectionSchema = new mongoose.Schema({
-    name: {
+    title: {
         type: String, require: true
     },
     description: {
-        type: String, require: true
+        type: String
     }, 
-    games: [ 
+    games: [
         { 
-            id: Number
+            type: String, 
         },
     ],
     
