@@ -18,13 +18,22 @@ apiQueryParams = {
 /*****************************/
 /*        API Request        */
 /*****************************/
-function categorySelect(type, categoryId = '') {
+function categorySelect(type, id = '') {
     let requestURL = ''
-    if (categoryId === '')
+        console.log('type:',type)
+    switch(type)
     {
-        requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
-    } else {
-        requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + categoryId
+        case('genres'):
+            if (id === '')
+            {
+                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
+            } else {
+                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + id 
+            }
+            break;
+        case('id'):
+            requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19"
+            break;
     }
     console.log(requestURL)
     return requestURL
@@ -71,17 +80,6 @@ router.get('/', (req, res) => {
             })
         })
     })
-//
-//    clearDB().then(() => {
-//        queryAPI(query).then(() => {
-//            Game.find({}, (err, foundGames) => {
-//                if (err) return res.send(err)
-//                res.render('games/index.ejs', {
-//                    games: foundGames
-//                })
-//            })
-//        })
-//    })
 })
 
 /****************************/
@@ -92,7 +90,7 @@ router.get('/:id', (req, res) => {
     fetch(query).then((response) => {
         response.json().then((data) => {
             res.render('games/show.ejs', {
-                game: data.results[0]
+                game: data
             })
         })
     })
