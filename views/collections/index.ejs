@@ -10,6 +10,28 @@
 
 <body>
     <h1>All Collections Page</h1>
+    <% for (let i=0; i < collections.length; i++) { %>
+
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="/collections/<%= collections[i]._id %>">
+                            <%= collections[i].title %>
+                        </a>
+                    </h4>
+                    <p>
+                        <%= collections[i].description %>
+                    </p>
+                    <% if (collections[i].games !== "empty") { %>
+                        <p><%= collections[i].games.length %></p>
+                    <% } %>
+                    <p><%= collections[i].games[0].id %></p>
+                </div>
+            </div>
+        </div>
+
+        <% } %>
 
 </body>
 
