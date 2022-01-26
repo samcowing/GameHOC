@@ -14,9 +14,8 @@
     <a href="/collections">Go to home page</a>
     <a href="/collections/<%=collection._id%>">Go to show page</a>
     <p>Edit collection name and description</p>
-    <form action="/collections/<%=collection._id%>?_method=PUT" method="POST">
-        <input type="text" name="title" value="<%= collection.title %>">
-        <input type="text" name="description" value="<%= collection.description %>">
+    <form action="/collections/<%=collection._id%>/add?_method=PUT" method="POST">
+        <input type="text" name="id" placeholder="(temporary) provide a game id">
         <input type="submit" value="Edit collection">
     </form>
 

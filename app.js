@@ -25,7 +25,7 @@ mongoose.connection.on('connected', () => {
 /*        Config        */
 /************************/
 app.set('view engine', 'ejs')
-
+app.locals.moment = require('moment');
 
 /****************************/
 /*        Middleware        */
