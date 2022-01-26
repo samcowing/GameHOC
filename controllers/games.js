@@ -103,18 +103,16 @@ apiQueryParams = {
 /*****************************/
 function categorySelect(type, id = '0') {
     let requestURL = ''
-        console.log('type:',type)
-    switch(type)
-    {
-        case('genres'):
-            if (id === '0')
-            {
+    console.log('type:', type)
+    switch (type) {
+        case ('genres'):
+            if (id === '0') {
                 requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
             } else {
-                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + id 
+                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + id
             }
             break;
-        case('id'):
+        case ('id'):
             requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19"
             break;
     }
@@ -154,7 +152,16 @@ function queryAPI(requestURL) {
 /*****************************/
 /*        Index Route        */
 /*****************************/
+router.get('/genres', (req, res) => {
+    console.log('redirecting from /games/genres')
+    res.redirect('/games/genres/0')
+})
+router.get('/', (req, res) => {
+    console.log('redirecting from /games')
+    res.redirect('/games/genres/0')
+})
 router.get('/genres/:id', (req, res) => {
+    console.log('hitting index route')
     const query = categorySelect('genres', req.params.id)
     fetch(query).then((response) => {
         response.json().then((data) => {
@@ -172,6 +179,8 @@ router.get('/genres/:id', (req, res) => {
 router.get('/:id', (req, res) => {
     let currentGame
     let gameScreenshots = []
+
+    console.log('hitting show route')
 
     const query = categorySelect('id', req.params.id)
     const imgQuery = categorySelect('genres', '0')
