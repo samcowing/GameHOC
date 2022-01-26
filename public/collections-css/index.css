@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: rgb(15, 15, 15);
+}
+
+img {
+    border-radius: 8px;
+    box-shadow: 1px 6px 6px -3px rgba(0, 0, 0, 0.5);
+    max-height: 110px;
+    margin-bottom: 10px;
+}
+.empty {
+    box-shadow: none;
+    max-width: 160px;
+}
+
+.body-head-container {
+    color: white;
+    background-color: rgba(65, 65, 65, 0.8)
+}
+
+.body-head-title {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.body-head-collCount {
+    display: none;
+}
+
+.body-head-newColl {
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+.newCollLink {
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: transparent;
+    color: white;
+    width: 80px;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.newCollLink:hover {
+    text-decoration: none;
+    background-color: rgba(146, 146, 146, 0.63);
+    color: white;
+    padding: 11px;
+}
+
+.card-deck {
+    flex-wrap: wrap;
+    width: 500px;
+    height: 380px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+h4 {
+    margin-top: -4px;
+    margin-bottom: -4px;
+}
+
+.card {
+    background-color: #616161;
+    border: 2px solid white;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+}
+  
+.card-body {
+    position: relative;
+}
+
+.card-title {
+    border-bottom: 1px solid white;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.edit, .delete {
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(85, 85, 85);
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+  
+.edit:hover,
+.edit:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.delete:hover,
+.delete:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.buttonContainer {
+    display: flex;
+}
+
+@media (min-width: 667px) {
+    body {
+      text-align: center;
+    }
+  
+    .image {
+      height: 225px;
+    }
+  
+    .card-deck {
+      display: inline-flex;
+      margin: auto;
+      margin-bottom: 20px;
+      text-align: center;
+      width: 500px;
+      height: 380px;
+    }
+    .body-head-container {
+        color: white;
+    }
+    
+    .body-head-title {
+        padding-top: 20px;
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    .body-head-collCount {
+        display: inline;
+    }
+    
+    .body-head-items {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}
+  
+@media (min-width: 1200px) {
+    .nav-a {
+      opacity: 0;
+    }
+    .card-deck {
+        text-align: center;
+        width: 500px;
+        height: 380px;
+    }
+  
+    .card-title {
+      align-items: center;
+      text-align: center;
+    }
+}

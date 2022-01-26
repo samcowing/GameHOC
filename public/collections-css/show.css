@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: rgb(15, 15, 15);
+}
+
+img {
+    border-radius: 8px;
+    box-shadow: 1px 6px 6px -3px rgba(0, 0, 0, 0.5);
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.body-head-container {
+    color: white;
+    background-color: rgba(65, 65, 65, 0.8);
+    margin-bottom: 15px;
+}
+
+.body-head-title {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.body-head-items {
+    text-align: center;
+    color: white;
+}
+
+.deleteColl { 
+    text-align: center;
+}
+
+
+.edit, .delete, .add {
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    width: 65px;
+}
+
+.add {
+    width: 100px;
+}
+
+.delete {
+    width: 150px;
+    background-color: transparent;
+}
+
+  
+.edit:hover,
+.edit:focus {
+    color: white;
+}
+
+.delete:hover,
+.delete:focus {
+    color: rgb(219, 4, 4);
+    text-decoration: underline;
+}
+
+.add:hover,
+.add:focus {
+    color: white;
+}
+/*
+.card-deck {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 250px;
+    padding-top: 20px;
+    margin: 0 auto;
+}
+*/
+.card {
+    margin: 0 auto;
+    width: 200px;
+    background-color: #616161;
+    border: 2px solid white;
+    border-radius: 8px;
+    color: white;
+}
+  
+.card-body {
+    position: relative;
+}
+  
+.card-title {
+    margin-bottom: 5px;
+    width: 300px;
+}
+
+@media (min-width: 800px) {
+    body {
+      text-align: center;
+    }
+  
+    .body-head-container {
+        color: white;
+    }
+    
+    .body-head-title {
+        padding-top: 20px;
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    .body-head-items {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 30px;
+    }
+
+    .body-head-btns {
+        display: block;
+        text-align: right;
+    }
+
+    .top-btns {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .deleteColl {
+        text-align: right;
+    }
+
+    .body-head-descr {
+        padding-right: 40px;
+        text-align: left;
+        padding-left: 30px;
+        padding-top: 18px;
+    }
+    
+    .body-head-btns {
+        justify-content: flex-end;
+    }
+
+    .image {
+        height: 225px;
+    }
+    
+    .card-deck {
+        display: inline-flex;
+        margin: auto;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 500px;
+        height: 380px;
+    }
+    
+}
+  
