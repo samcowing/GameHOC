@@ -283,3 +283,8 @@ header {
   transition: all 0.3s ease-in;
   color: rgba(53, 53, 53, 0.9);
 }
+
+.about-game {
+  width: 450px;
+}
+

@@ -82,13 +82,7 @@
                 <%=game.name%>
             </h1>
             
-            <div class="screenshot-placeholder">
-                
-                <% for (let i = 0; (i < 3 && i < screenshots.length); i++) { %>
-                <img src="<%=screenshots[i]%> " alt="">
-                <% } %>
-                
-            </div>
+            <div class="screenshot-placeholder"></div>
             
         </div>
         
@@ -137,6 +131,11 @@
                 <a class="review-btn" href="">
                     <button class="add-btn"><span>+</span> Add a Review</button>
                 </a>
+            </div>
+            
+            <div class="about-game">
+                <h3>About</h3>
+                <p class="description"><%-game.description%></p>
             </div>
             
         </div>
