@@ -47,7 +47,7 @@ header {
 }
 
 .background-img {
-  width: 100vw;
+  width: 100%;
   position: absolute;
   opacity: 0.15;
   margin: 0 auto;
@@ -56,7 +56,7 @@ header {
 }
 
 .body-head-container {
-  width: 100vw;
+  width: 100%;
   position: relative;
 }
 
@@ -133,17 +133,30 @@ header {
   margin-top: 5px;
 }
 
-.screenshot-placeholder {
-  border: 2px solid white;
-  border-radius: 8px;
+.screenshot-container {
   height: 200px;
-  width: 400px;
+  width: 95%;
+  overflow-x: scroll;
+  padding: 10px;
+  white-space: nowrap;
   margin: 0 auto;
-  margin-top: 10px;
-  background-color: rgba(218, 218, 218, 0.15);
 }
 
-.body-container {
+.screenshots {
+  display: inline-block;
+  height: 100%;
+  width: 300px;
+  margin-right: -10px;
+}
+
+.screenshots img {
+  height: 150px;
+  width: 275px;
+  border-radius: 8px;
+}
+
+
+.body-content {
   width: 100%;
 }
 
@@ -190,7 +203,7 @@ header {
   line-height: 15px;
   color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
-  width: 250px;
+  width: 95%;
   margin: 0 auto;
   margin-top: 15px;
   display: flex;
@@ -230,7 +243,7 @@ header {
 }
 
 .review-btn-container {
-  width: 500px;
+  width: 95%;
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -283,3 +296,8 @@ header {
   transition: all 0.3s ease-in;
   color: rgba(53, 53, 53, 0.9);
 }
+
+.about-game {
+  width: 450px;
+}
+
