@@ -170,13 +170,30 @@ router.get('/genres/:id', (req, res) => {
 /*        Show Route        */
 /****************************/
 router.get('/:id', (req, res) => {
+    let currentGame
+    let gameScreenshots = []
+
     const query = categorySelect('id', req.params.id)
+    const imgQuery = categorySelect('genres', '0')
+
     fetch(query).then((response) => {
-        response.json().then((data) => {
-            res.render('games/show.ejs', {
-                game: data
+        response.json().then((gameObj) => {
+            currentGame = gameObj
+        }).then(fetch(imgQuery).then((response) => {
+            response.json().then((games) => {
+                const index = games.results.findIndex(element => element.id === currentGame.id)
+
+                if (index < 0)
+                    gameScreenshots.length = 0
+                else
+                    gameScreenshots = games.results[index].short_screenshots
+
+                res.render('games/show.ejs', {
+                    game: currentGame,
+                    screenshots: gameScreenshots
+                })
             })
-        })
+        }))
     })
 })
 
