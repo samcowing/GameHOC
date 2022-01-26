@@ -9,12 +9,15 @@ const collectionSchema = new mongoose.Schema({
     }, 
     games: [
         { 
-            type: String
+            id: String,
+            name: String,
+            image: String
         },
     ],
     
-}) 
+}, { timestamps: true }) 
 
 const Collection = mongoose.model('Collection', collectionSchema)
 
 module.exports = Collection
+
