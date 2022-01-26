@@ -32,15 +32,26 @@
 
         <h1 class="body-title">Browse Games</h1>
         <div class="genre-btn-forms">
-            <form action="/games/genres/5" method="POST">
-                <input class="genre-btn" type="submit" value="Sports">
-            </form>
-            <form action="/games/genres/3" method="POST">
-                <input class="genre-btn" type="submit" value="Action">
-            </form>
-            <form action="/games/genres/11" method="POST">
-                <input class="genre-btn" type="submit" value="Arcade">
-            </form>
+            <a href="/games/genres/15">
+                <button class="genre-btn">Sports</button>
+            </a>
+            <a href="/games/genres/4">
+                <button class="genre-btn">Action</button>
+            </a>
+            <a href="/games/genres/11">
+                <button class="genre-btn">Arcade</button>
+            </a>
+
+            <!-- <form action="/games/genres/5" method="POST"> -->
+            <!--     <input class="genre-btn" type="submit" value="Sports"> --> 
+            <!-- </form> -->
+            <!-- <form action="/games/genres/3" method="POST"> -->
+            <!--     <input class="genre-btn" type="submit" value="Action"> --> 
+            <!-- </form> -->
+            <!-- <form action="/games/genres/11" method="POST"> -->
+            <!--     <input class="genre-btn" type="submit" value="Arcade"> --> 
+            <!-- </form> -->
+
         </div>
         <cite class="genre-desc-title">Brief Genre Description</cite>
         <p class="genre-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque nihil voluptatem
@@ -55,12 +66,16 @@
 
     <div class="card-deck">
         <div class="card">
-            <img class="card-img-top image" src="<%= games[i].background_image %>" alt="game-image" />
+            <a href="/games/<%= games[i].id %>">
+                <img class="card-img-top image" src="<%= games[i].background_image %>" alt="game-image" />
+            </a>
             <div class="card-body">
 
-                <h4 class="card-title">
-                    <%= games[i].name %>
-                </h4>
+                <a href="/games/<%= games[i].id %>">
+                    <h4 class="card-title">
+                        <%= games[i].name %>
+                    </h4>
+                </a>
 
                 <p class="metacritic">
                     <%= games[i].metacritic %>
