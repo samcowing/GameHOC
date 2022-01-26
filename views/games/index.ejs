@@ -10,7 +10,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="games-css/index.css">
+    <link rel="stylesheet" href="/games-css/index.css">
     <title>Browse Games</title>
 </head>
 
@@ -51,112 +51,113 @@
             vero?</p>
     </div>
 
-    <% for (let i=0; i < game.length; i++) { %>
+    <% for (let i=0; i < games.length; i++) { %>
 
-        <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top image" src="<%= game[i].background_image %>" alt="game-image" />
-                <div class="card-body">
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top image" src="<%= games[i].background_image %>" alt="game-image" />
+            <div class="card-body">
 
-                    <h4 class="card-title">
-                        <%= game[i].name %>
-                    </h4>
+                <h4 class="card-title">
+                    <%= games[i].name %>
+                </h4>
 
-                    <p class="metacritic">
-                        <%= game[i].metacritic %>
-                    </p>
+                <p class="metacritic">
+                    <%= games[i].metacritic %>
+                </p>
 
-                    <div class="dropdown">
-                        <a class="heart-link btn btn-secondary dropdown-toggle" href="#" role="button"
-                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18"
-                                viewBox="0 0 172 172" style=" fill:#fff;">
-                                <g transform="translate(11.008,11.008) scale(0.872,0.872)">
-                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none"
-                                        stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10"
-                                        stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
-                                        font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                        <g fill="#fff" stroke="#fff" stroke-width="26" stroke-linejoin="round">
-                                            <path
-                                                d="M86,40.13333c0,0 11.46711,-17.2 31.27578,-17.2c20.726,0 37.52422,16.79822 37.52422,37.52422c0,36.16251 -42.06484,70.7263 -61.55495,86.02239c-0.0371,0.03384 -0.07443,0.06743 -0.11198,0.10078c-0.02959,0.02321 -0.07131,0.05526 -0.10079,0.07839c-0.03876,0.0304 -0.09579,0.07053 -0.13437,0.10078v-0.0112c-1.98664,1.50111 -4.40792,2.31475 -6.89792,2.31797c-2.48616,-0.00565 -4.90314,-0.81917 -6.88672,-2.31797l-0.0112,0.0112c-0.13183,-0.10335 -0.31396,-0.25316 -0.44792,-0.35833c-0.01871,-0.01487 -0.03737,-0.0298 -0.05599,-0.04479c-19.55072,-15.35126 -61.39817,-49.8228 -61.39817,-85.89922c0,-20.726 16.79822,-37.52422 37.52422,-37.52422c19.80867,0 31.27578,17.2 31.27578,17.2z">
-                                            </path>
-                                        </g>
-                                        <path d="M0,172v-172h172v172z" fill="none" stroke="none" stroke-width="1"
-                                            stroke-linejoin="miter"></path>
-                                        <g fill="#616161" stroke="none" stroke-width="1" stroke-linejoin="miter">
-                                            <path
-                                                d="M54.72422,22.93333c-20.726,0 -37.52422,16.79822 -37.52422,37.52422c0,36.07642 41.84746,70.54796 61.39817,85.89922c0.01862,0.01499 0.03728,0.02992 0.05599,0.04479c0.13396,0.10517 0.31608,0.25498 0.44792,0.35833l0.0112,-0.0112c1.98358,1.4988 4.40056,2.31232 6.88672,2.31797c2.48999,-0.00322 4.91127,-0.81686 6.89792,-2.31797v0.0112c0.03859,-0.03025 0.09561,-0.07038 0.13437,-0.10078c0.02948,-0.02312 0.0712,-0.05517 0.10079,-0.07839c0.03755,-0.03335 0.07487,-0.06694 0.11198,-0.10078c19.49011,-15.2961 61.55495,-49.85989 61.55495,-86.02239c0,-20.726 -16.79822,-37.52422 -37.52422,-37.52422c-19.80867,0 -31.27578,17.2 -31.27578,17.2c0,0 -11.46711,-17.2 -31.27578,-17.2z">
-                                            </path>
-                                        </g>
-                                        <path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter">
+                <div class="dropdown">
+                    <a class="heart-link btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18"
+                            viewBox="0 0 172 172" style=" fill:#fff;">
+                            <g transform="translate(11.008,11.008) scale(0.872,0.872)">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none"
+                                    stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10"
+                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                    font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <g fill="#fff" stroke="#fff" stroke-width="26" stroke-linejoin="round">
+                                        <path
+                                            d="M86,40.13333c0,0 11.46711,-17.2 31.27578,-17.2c20.726,0 37.52422,16.79822 37.52422,37.52422c0,36.16251 -42.06484,70.7263 -61.55495,86.02239c-0.0371,0.03384 -0.07443,0.06743 -0.11198,0.10078c-0.02959,0.02321 -0.07131,0.05526 -0.10079,0.07839c-0.03876,0.0304 -0.09579,0.07053 -0.13437,0.10078v-0.0112c-1.98664,1.50111 -4.40792,2.31475 -6.89792,2.31797c-2.48616,-0.00565 -4.90314,-0.81917 -6.88672,-2.31797l-0.0112,0.0112c-0.13183,-0.10335 -0.31396,-0.25316 -0.44792,-0.35833c-0.01871,-0.01487 -0.03737,-0.0298 -0.05599,-0.04479c-19.55072,-15.35126 -61.39817,-49.8228 -61.39817,-85.89922c0,-20.726 16.79822,-37.52422 37.52422,-37.52422c19.80867,0 31.27578,17.2 31.27578,17.2z">
                                         </path>
                                     </g>
+                                    <path d="M0,172v-172h172v172z" fill="none" stroke="none" stroke-width="1"
+                                        stroke-linejoin="miter">
+                                    </path>
+                                    <g fill="#616161" stroke="none" stroke-width="1" stroke-linejoin="miter">
+                                        <path
+                                            d="M54.72422,22.93333c-20.726,0 -37.52422,16.79822 -37.52422,37.52422c0,36.07642 41.84746,70.54796 61.39817,85.89922c0.01862,0.01499 0.03728,0.02992 0.05599,0.04479c0.13396,0.10517 0.31608,0.25498 0.44792,0.35833l0.0112,-0.0112c1.98358,1.4988 4.40056,2.31232 6.88672,2.31797c2.48999,-0.00322 4.91127,-0.81686 6.89792,-2.31797v0.0112c0.03859,-0.03025 0.09561,-0.07038 0.13437,-0.10078c0.02948,-0.02312 0.0712,-0.05517 0.10079,-0.07839c0.03755,-0.03335 0.07487,-0.06694 0.11198,-0.10078c19.49011,-15.2961 61.55495,-49.85989 61.55495,-86.02239c0,-20.726 -16.79822,-37.52422 -37.52422,-37.52422c-19.80867,0 -31.27578,17.2 -31.27578,17.2c0,0 -11.46711,-17.2 -31.27578,-17.2z">
+                                        </path>
+                                    </g>
+                                    <path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter">
+                                    </path>
                                 </g>
-                            </svg>
-                            Add to Collection
+                            </g>
+                        </svg>
+                        Add to Collection
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Create New Collection</a>
+                        <hr class="dropdown-line">
+                        <a class="dropdown-item example-item" href="#">Collection 1
+                            <i class="fa fa-check"></i>
                         </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">Create New Collection</a>
-                            <hr class="dropdown-line">
-                            <a class="dropdown-item example-item" href="#">Collection 1
-                                <i class="fa fa-check"></i>
-                            </a>
-                            <a class="dropdown-item" href="#">Collection 2</a>
-                        </div>
-
+                        <a class="dropdown-item" href="#">Collection 2</a>
                     </div>
 
-                    <h5 class="release-text"> Release Date:
-                        <p class="release-date">
-                            <%= game[i].released %>
-                        </p>
-                    </h5>
-                    <hr>
-
-                    <h5 class="genre-text">Genres:
-                        <p class="genre-names">
-                            <% for (let j=0; (j<3 && j < game[i].genres.length); j++) { %>
-                                <% if( j < 2) { %>
-                                    <%= game[i].genres[j].name + ',' %>
-                                        <% } else { %>
-                                            <%= game[i].genres[j].name %>
-                                                <% } %>
-                                                    <% } %>
-                        </p>
-                    </h5>
-                    <hr>
-
-                    <h5 class="platform-text">Platforms:
-                        <p class="platform-list">
-                            <% for (let k=0; (k<3 && k < game[i].platforms.length); k++) { %>
-                                <% if ( k < 2 ) { %>
-                                    <%= game[i].platforms[k].platform.name + ',' %>
-                                        <% } else { %>
-                                            <%= game[i].platforms[k].platform.name %>
-                                                <% } %>
-                                                    <% } %>
-                        </p>
-                    </h5>
-                    <hr>
-
                 </div>
+
+                <h5 class="release-text"> Release Date:
+                    <p class="release-date">
+                        <%= games[i].released %>
+                    </p>
+                </h5>
+                <hr>
+
+                <h5 class="genre-text">Genres:
+                    <p class="genre-names">
+                        <% for (let j=0; (j<3 && j < games[i].genres.length); j++) { %>
+                        <% if( j < 2) { %>
+                        <%= games[i].genres[j].name + ',' %>
+                        <% } else { %>
+                        <%= games[i].genres[j].name %>
+                        <% } %>
+                        <% } %>
+                    </p>
+                </h5>
+                <hr>
+
+                <h5 class="platform-text">Platforms:
+                    <p class="platform-list">
+                        <% for (let k=0; (k<3 && k < games[i].platforms.length); k++) { %>
+                        <% if ( k < 2 ) { %>
+                        <%= games[i].platforms[k].platform.name + ',' %>
+                        <% } else { %>
+                        <%= games[i].platforms[k].platform.name %>
+                        <% } %>
+                        <% } %>
+                    </p>
+                </h5>
+                <hr>
+
             </div>
         </div>
+    </div>
 
-        <% } %>
-
-
-
+    <% } %>
 
 
-            <!-- BOOTSTRAP -->
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-                crossorigin="anonymous"></script>
+
+
+
+    <!-- BOOTSTRAP -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
