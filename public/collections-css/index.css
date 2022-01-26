@@ -17,11 +17,12 @@ img {
 }
 
 .body-head-container {
-    margin-top: 20px;
     color: white;
+    background-color: rgba(65, 65, 65, 0.8)
 }
 
 .body-head-title {
+    padding-top: 20px;
     text-align: center;
 }
 
@@ -56,6 +57,7 @@ img {
     width: 500px;
     height: 380px;
     margin: auto;
+    padding-top: 20px;
 }
 
 h4 {
@@ -103,6 +105,7 @@ h4 {
     color: white;
     text-decoration: none;
 }
+
 .buttonContainer {
     display: flex;
 }
@@ -125,11 +128,11 @@ h4 {
       height: 380px;
     }
     .body-head-container {
-        margin-top: 20px;
         color: white;
     }
     
     .body-head-title {
+        padding-top: 20px;
         text-align: left;
         padding-left: 30px;
     }
@@ -143,7 +146,6 @@ h4 {
         justify-content: space-between;
         padding-right: 30px;
         padding-left: 30px;
-
     }
 }
   
