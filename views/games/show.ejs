@@ -82,12 +82,12 @@
                 <%=game.name%>
             </h1>
             
-            <div class="screenshot-placeholder">
-                
-                <% for (let i = 0; (i < 3 && i < screenshots.length); i++) { %>
-                <img src="<%=screenshots[i].image%>" alt="">
+            <div class="screenshot-container">
+                <% for (let i = 1; i < screenshots.length; i++) { %>
+                <div class="screenshots">
+                    <img src="<%=screenshots[i].image%>" alt="Game screenshots">
+                </div>
                 <% } %>
-                
             </div>
             
         </div>
