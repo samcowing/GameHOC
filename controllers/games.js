@@ -18,13 +18,13 @@ apiQueryParams = {
 /*****************************/
 /*        API Request        */
 /*****************************/
-function categorySelect(type, id = '') {
+function categorySelect(type, id = '0') {
     let requestURL = ''
         console.log('type:',type)
     switch(type)
     {
         case('genres'):
-            if (id === '')
+            if (id === '0')
             {
                 requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
             } else {
@@ -71,8 +71,8 @@ function queryAPI(requestURL) {
 /*****************************/
 /*        Index Route        */
 /*****************************/
-router.get('/', (req, res) => {
-    const query = categorySelect('genres', '51')
+router.get('/genres/:id', (req, res) => {
+    const query = categorySelect('genres', req.params.id)
     fetch(query).then((response) => {
         response.json().then((data) => {
             res.render('games/index.ejs', {
