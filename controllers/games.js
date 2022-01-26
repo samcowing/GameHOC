@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Game = require('../models/Game')
+const Collection = require('../models/Collection')
 const mongoose = require('mongoose')
 
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
@@ -103,7 +104,6 @@ apiQueryParams = {
 /*****************************/
 function categorySelect(type, id = '0') {
     let requestURL = ''
-    console.log('type:', type)
     switch (type) {
         case ('genres'):
             if (id === '0') {
@@ -116,7 +116,6 @@ function categorySelect(type, id = '0') {
             requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19"
             break;
     }
-    console.log(requestURL)
     return requestURL
 }
 
@@ -153,21 +152,25 @@ function queryAPI(requestURL) {
 /*        Index Route        */
 /*****************************/
 router.get('/genres', (req, res) => {
-    console.log('redirecting from /games/genres')
     res.redirect('/games/genres/0')
 })
 router.get('/', (req, res) => {
-    console.log('redirecting from /games')
     res.redirect('/games/genres/0')
 })
 router.get('/genres/:id', (req, res) => {
-    console.log('hitting index route')
+    let allGames;
     const query = categorySelect('genres', req.params.id)
     fetch(query).then((response) => {
         response.json().then((data) => {
-            res.render('games/index.ejs', {
-                games: data.results,
-                genre: allGenres[req.params.id]
+            allGames = data
+        }).then(() => {
+            Collection.find({}, (err, foundCollections) => {
+                if (err) return res.send(err)
+                res.render('games/index.ejs', {
+                    games: allGames.results,
+                    genre: allGenres[req.params.id],
+                    collections: foundCollections
+                })
             })
         })
     })
@@ -179,8 +182,6 @@ router.get('/genres/:id', (req, res) => {
 router.get('/:id', (req, res) => {
     let currentGame
     let gameScreenshots = []
-
-    console.log('hitting show route')
 
     const query = categorySelect('id', req.params.id)
     const imgQuery = categorySelect('genres', '0')
@@ -207,14 +208,20 @@ router.get('/:id', (req, res) => {
 })
 
 /*****************************/
-/*        Create Route       */
+/*        Route       */
 /*****************************/
 
-router.post('/:type/:id', (req, res) => {
-    categorySelect(req.params.type, req.params.id)
-    apiQueryParams.type = req.params.type
-    apiQueryParams.id = req.params.id
-    res.redirect('/games')
+router.get('/collection-add/:gameId/:collectionId', (req, res) => {
+    const query = categorySelect('id', req.params.gameId)
+    fetch(query).then((response) => {
+        response.json().then((gameObj) => {
+            let newGame = { $push: { games: { id: gameObj.id, name: gameObj.name, image: gameObj.image, } } }
+            Collection.findByIdAndUpdate(req.params.collectionId, newGame, { new: true }, (err, updatedCollection) => {
+                if (err) return res.send(err)
+                res.redirect('/games')
+            })
+        })
+    })
 })
 
 
