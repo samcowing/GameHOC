@@ -10,8 +10,9 @@
 </head>
 
 <body>
-    <h1>All Collections Page</h1>
+    <h1>My Collections</h1>
 
+    <p>Collections No: <%= collections.length %></p>
     <a href="/collections/new">Make new collection</a>
     <% for (let i=0; i < collections.length; i++) { %>
 
@@ -23,6 +24,7 @@
                             <%= collections[i].title %>
                         </a>
                     </h3>
+                    <p>Created on: <%= moment(collections[i].createdAt).format("LLLL") %></p>
                     <p>
                         <%= collections[i].description %>
                     </p>

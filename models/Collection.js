@@ -15,8 +15,9 @@ const collectionSchema = new mongoose.Schema({
         },
     ],
     
-}) 
+}, { timestamps: true }) 
 
 const Collection = mongoose.model('Collection', collectionSchema)
 
 module.exports = Collection
+

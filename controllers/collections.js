@@ -6,6 +6,7 @@ const Collection = require('../models/Collection');
 const { db, collection } = require('../models/Game');
 const Game = require('../models/Game');
 const { route } = require('./games');
+const moment = require('moment');
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
@@ -119,8 +120,7 @@ router.get('/:id/addgames', (req, res) => {
 router.post('/', (req, res)=> {
     Collection.create(req.body, (err, newCollection) => {
         if (err) return res.send(err)
-        res.send(req.body)
-        //res.redirect('collections')
+        res.redirect('collections')
     })
 })
  
@@ -172,4 +172,3 @@ router.delete('/:id/:gameId', (req, res) => {
 })
 
 module.exports = router
-
