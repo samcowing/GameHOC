@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: rgb(15, 15, 15);
+  color:  white;
+}
+
+header {
+  color: white;
+  box-shadow: 1px 9px 7px -4px rgba(0, 0, 0, 0.5);
+  background-color: rgba(15, 15, 15, 0.5);
+  position: relative;
+  border-radius: 8px;
+}
+
+.logo {
+  font-size: 20px;
+  font-family: "Ubuntu", cursive;
+  font-weight: 400;
+  text-align: center;
+}
+
+.logo-title {
+  color: white;
+  font-size: 18px;
+}
+
+.logo-img {
+  width: 45px;
+  height: 45px;
+}
+
+.nav-menu {
+  color: white;
+  font-size: 26px;
+}
+
+.nav-a {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.nav-a:hover {
+  text-decoration: none;
+}
+
+.background-img {
+  width: 100vw;
+  position: absolute;
+  opacity: 0.15;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 1px 14px 6px -5px rgba(0,0,0,0.8);
+}
+
+.body-head-container {
+  width: 500px;
+  position: relative;
+}
+
+.container {
+  width: 475px;
+  display: flex;
+  margin-top: 75px;
+}
+
+.age-rating {
+  display: table;
+  width: 100px;
+  height: 25px;
+  margin-left: auto;
+  margin-right: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  border: 1px solid white;
+  border-radius: 8px;
+  background-color: rgba(218, 218, 218, 0.15);
+  user-select: none;
+  font-size: 14px;
+}
+
+.active-mature {
+  border: 1px solid rgba(128, 2, 2, 0.45);
+  background-color: rgba(212, 1, 1, 0.15);
+}
+
+.active-teen {
+  border: 1px solid rgba(204, 204, 2, 0.6);
+  background-color: rgba(255, 255, 0, 0.15);
+}
+
+.active-everyone {
+  border: 1px solid rgba(0, 128, 0, 0.7);
+  background-color: rgba(0, 128, 0, 0.15);
+}
+
+.age {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.released {
+  display: table;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  border: 1px solid white;
+  border-radius: 8px;
+  background-color: rgba(218, 218, 218, 0.15);
+  user-select: none;
+  font-size: 14px;
+  width: 100px;
+  height: 25px;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.release-date {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.body-title {
+  font-size: 38px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  margin-top: 5px;
+}
+
+.screenshot-placeholder {
+  border: 2px solid white;
+  border-radius: 8px;
+  height: 200px;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: rgba(218, 218, 218, 0.15);
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.heart-link {
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(85, 85, 85);
+}
+
+.heart-link:hover,
+.heart-link:focus {
+  color: white;
+  text-decoration: none;
+}
+
+
+.dropdown-line {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.fa-check {
+  color: green;
+  float: right;
+}
+
+.rating-text {
+  text-transform: capitalize;
+}

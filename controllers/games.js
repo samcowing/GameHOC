@@ -20,18 +20,16 @@ apiQueryParams = {
 /*****************************/
 function categorySelect(type, id = '') {
     let requestURL = ''
-        console.log('type:',type)
-    switch(type)
-    {
-        case('genres'):
-            if (id === '')
-            {
+    console.log('type:', type)
+    switch (type) {
+        case ('genres'):
+            if (id === '') {
                 requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
             } else {
-                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + id 
+                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + id
             }
             break;
-        case('id'):
+        case ('id'):
             requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19"
             break;
     }
