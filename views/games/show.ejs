@@ -81,7 +81,15 @@
             <h1 class="body-title">
                 <%=game.name%>
             </h1>
-            <div class="screenshot-placeholder"></div>
+            
+            <div class="screenshot-placeholder">
+                
+                <% for (let i = 0; (i < 3 && i < screenshots.length); i++) { %>
+                <img src="<%=screenshots[i]%> " alt="">
+                <% } %>
+                
+            </div>
+            
         </div>
         
         <div class="body-content">
@@ -127,20 +135,7 @@
             
             <div class="review-btn-container">
                 <a class="review-btn" href="">
-                    <button class="add-btn"><span class="svg"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="26" height="26" viewBox="0 0 172 172" style=" fill:#000000;">
-                                <g transform="translate(6.88,6.88) scale(0.92,0.92)">
-                                    <g fill="none" fill-rule="none" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                        <g fill="#000000" fill-rule="evenodd" stroke="#ffffff" stroke-width="12" stroke-linejoin="round">
-                                            <path d="M93.16667,14.33333v64.5h64.5v14.33333h-64.5v64.5h-14.33333v-64.5h-64.5v-14.33333h64.5v-64.5z"></path>
-                                        </g>
-                                        <path d="M0,172v-172h172v172z" fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linejoin="miter"></path>
-                                        <g fill="#616161" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linejoin="miter">
-                                            <path d="M78.83333,14.33333v64.5h-64.5v14.33333h64.5v64.5h14.33333v-64.5h64.5v-14.33333h-64.5v-64.5z"></path>
-                                        </g>
-                                        <path d="" fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linejoin="miter"></path>
-                                    </g>
-                                </g>
-                            </svg></span> Add a Review</button>
+                    <button class="add-btn"><span>+</span> Add a Review</button>
                 </a>
             </div>
             
