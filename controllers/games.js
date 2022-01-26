@@ -215,9 +215,10 @@ router.get('/collection-add/:gameId/:collectionId', (req, res) => {
     const query = categorySelect('id', req.params.gameId)
     fetch(query).then((response) => {
         response.json().then((gameObj) => {
-            let newGame = { $push: { games: { id: gameObj.id, name: gameObj.name, image: gameObj.image, } } }
+            let newGame = { $push: { games: { id: gameObj.id, name: gameObj.name, image: gameObj.background_image, } } }
             Collection.findByIdAndUpdate(req.params.collectionId, newGame, { new: true }, (err, updatedCollection) => {
                 if (err) return res.send(err)
+                console.log(updatedCollection)
                 res.redirect('/games')
             })
         })
