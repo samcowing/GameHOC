@@ -154,6 +154,12 @@ function queryAPI(requestURL) {
 /*****************************/
 /*        Index Route        */
 /*****************************/
+router.get('/genres', (req, res) => {
+    res.redirect('/games/genres/0')
+})
+router.get('/', (req, res) => {
+    res.redirect('/games/genres/0')
+})
 router.get('/genres/:id', (req, res) => {
     const query = categorySelect('genres', req.params.id)
     fetch(query).then((response) => {
