@@ -1,9 +1,11 @@
+const { response } = require('express');
 const express = require('express');
 const { resolve } = require('path/posix');
 const router = express.Router()
 const Collection = require('../models/Collection');
-const { db } = require('../models/Game');
-const Game = require('../models/Game')
+const { db, collection } = require('../models/Game');
+const Game = require('../models/Game');
+const { route } = require('./games');
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
@@ -17,6 +19,40 @@ function testUpdateAdd() {
 
 //testUpdateAdd()
 
+function getGames(gameIdString) {
+    let query = "https://api.rawg.io/api/games/"
+    let key = "?key=b37c07aab35b44058235af257c65be19"
+    let arr = []
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < gameIdString.length; i++) {
+            getGameData(query + gameIdString[i] + key).then((data) => {
+                arr.push(data)
+            }).then(() => {
+                if (arr.length === gameIdString.length) {
+                    console.log(arr)
+                    resolve(arr)
+                }
+            })
+        } 
+    })
+}
+
+function getGameData(game) {
+    return new Promise((resolve, reject) => {
+        fetch(game).then((response) => {
+            response.json().then((data) => {
+                resolve(data)
+            })
+        }) 
+    })
+}
+
+/***************************/
+/*        New Route        */
+/***************************/
+router.get('/new', (req, res) => {
+    res.render('collections/new.ejs')
+})
 
 /*****************************/
 /*        Index Route        */
@@ -28,23 +64,22 @@ router.get('/', (req, res)=> {
     })
 })
 
-/***************************/
-/*        New Route        */
-/***************************/
-router.get('/new', (req, res) => {
-    res.render('collections/new.ejs')
-})
-
 /****************************/
 /*        Show Route        */
 /****************************/
 router.get('/:id',(req, res)=> {
+
     Collection.findById(req.params.id, (err, foundCollection) => {
         if (err) return res.send(err)
-        console.log(foundCollection)
-        res.render('collections/show.ejs', { collection: foundCollection })
+        getGames(foundCollection.games).then((gamesArr) => {
+            res.render('collections/show.ejs', { 
+                collection: foundCollection,
+                games: gamesArr 
+            })
+        })
     })
 })
+
 
 /****************************/
 /*        Edit Route        */
@@ -96,13 +131,16 @@ router.delete('/:id', (req, res) => {
 })
 
 router.delete('/:id/:gameId', (req, res) => {
-    Collection.findOneAndUpdate( { _id: req.params.id }, { $pull: { games: req.params.gameId } }, { new: true}, (err, updated) => {
-        if (err) return console.log(err)
-        console.log(updated)
+    return new Promise((resolve, reject) => {
+        Collection.findOneAndUpdate( { _id: req.params.id }, { $pull: { games: req.params.gameId } }, { new: true}, (err, updated) => {
+            if (err) return console.log(err)
+            console.log(updated)  
+            resolve()
+        })
+    }).then(() => {
         res.redirect('/collections/' + req.params.id)
-        
-    })
-})  
+    })  
+})
 
 module.exports = router
 
