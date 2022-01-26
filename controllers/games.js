@@ -20,19 +20,10 @@ apiQueryParams = {
 /*****************************/
 function categorySelect(type, id = '0') {
     let requestURL = ''
-<<<<<<< HEAD
     console.log('type:', type)
     switch (type) {
         case ('genres'):
-            if (id === '') {
-=======
-        console.log('type:',type)
-    switch(type)
-    {
-        case('genres'):
-            if (id === '0')
-            {
->>>>>>> main
+            if (id === '0') {
                 requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
             } else {
                 requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + id
