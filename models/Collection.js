@@ -9,7 +9,9 @@ const collectionSchema = new mongoose.Schema({
     }, 
     games: [
         { 
-            type: String
+            id: String,
+            name: String,
+            image: String
         },
     ],
     

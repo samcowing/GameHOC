@@ -26,6 +26,11 @@
                     <p>
                         <%= collections[i].games.length %>
                     </p>
+                    <% if (collections[i].games.length > 0) { %>
+                        <p>
+                            <%= collections[i].games.name %>
+                        </p>
+                    <% } %>
                 </div>
             </div>
         </div>
