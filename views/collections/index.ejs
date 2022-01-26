@@ -10,28 +10,38 @@
 
 <body>
     <h1>All Collections Page</h1>
+
+    <a href="/collections/new">Make new collection</a>
     <% for (let i=0; i < collections.length; i++) { %>
 
         <div class="card-deck">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">
+                    <h3 class="card-title">
                         <a href="/collections/<%= collections[i]._id %>">
                             <%= collections[i].title %>
                         </a>
-                    </h4>
+                    </h3>
                     <p>
                         <%= collections[i].description %>
                     </p>
                     <p>
-                        <%= collections[i].games.length %>
+                        Number of games in collection: <%= collections[i].games.length %>
                     </p>
                     <% if (collections[i].games.length > 0) { %>
-                        <p>
-                            <%= collections[i].games.name %>
-                        </p>
+                        <% for (let j = 0; j < collections[i].games.length; j++) { %>
+                            <ul>
+                                <li><%= collections[i].games[j].name %></li>
+                            </ul>
+                        <% } %>
                     <% } %>
-                </div>
+                    <div>
+                        <form method="POST" action="/collections/<%=collections[i]._id%>?_method=DELETE">
+                            <input type="submit" value="delete this collection" >
+                        </form>
+                        <a href="/collections/<%=collections[i]._id%>/edit">Edit this collection</a> <br/>  
+                        <a href="/collections/<%=collections[i]._id%>/addgames">Add Games</a>  
+                    </div>
             </div>
         </div>
 

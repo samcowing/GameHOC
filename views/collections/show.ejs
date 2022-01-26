@@ -10,6 +10,7 @@
 
 <body>
     <h1>Single Collection Page</h1>
+    <a href="/collections">Back</a>
     <div>
         <h3><%= collection.title %></h3>
         <p><%= collection.description %></p>
@@ -26,7 +27,7 @@
         <form method="POST" action="/collections/<%=collection._id%>?_method=DELETE">
             <input type="submit" value="delete this collection" >
         </form>
-        <a href="/collections/<%=collection._id%>/edit">Edit this collection</a>   
+        <a href="/collections/<%=collection._id%>/edit">Edit this collection</a> <br/>   
         <a href="/collections/<%=collection._id%>/addgames">Add Games</a>  
     </div>
 </body>
