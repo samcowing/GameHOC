@@ -7,6 +7,32 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 
 
 /***************************/
+/*        Constants        */
+/***************************/
+const allGenres = {
+                      '4': 'Action',
+                      '51': 'Indie',
+                      '3': 'Adventure',
+                      '5': 'RPG',
+                      '10': 'Strategy',
+                      '2': 'Shooter',
+                      '40': 'Casual',
+                      '14': 'Simulation',
+                      '7': 'Puzzle',
+                      '11': 'Arcade',
+                      '83': 'Platformer',
+                      '1': 'Racing',
+                      '59': 'Massively Multiplayer',
+                      '15': 'Sports',
+                      '6': 'Fighting',
+                      '19': 'Family',
+                      '28': 'Board Games',
+                      '34': 'Educational',
+                      '17': 'Card'
+                  }
+
+
+/***************************/
 /*        Variables        */
 /***************************/
 apiQueryParams = {
@@ -76,7 +102,8 @@ router.get('/genres/:id', (req, res) => {
     fetch(query).then((response) => {
         response.json().then((data) => {
             res.render('games/index.ejs', {
-                games: data.results
+                games: data.results,
+                genre: allGenres[req.params.id]
             })
         })
     })
