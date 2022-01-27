@@ -214,19 +214,34 @@ router.get('/:id', (req, res) => {
     })
 })
 
-/*****************************/
-/*        Route       */
-/*****************************/
+/*********************************************/
+/*        Add Game to Collection Route       */
+/*********************************************/
 
 router.get('/collection-add/:gameId/:collectionId', (req, res) => {
+    let duplicate = false
     const query = categorySelect('id', req.params.gameId)
     fetch(query).then((response) => {
         response.json().then((gameObj) => {
             let newGame = { $push: { games: { id: gameObj.id, name: gameObj.name, image: gameObj.background_image, } } }
-            Collection.findByIdAndUpdate(req.params.collectionId, newGame, { new: true }, (err, updatedCollection) => {
-                if (err) return res.send(err)
-                console.log(updatedCollection)
-                res.redirect('/games')
+            // Make sure game is not already in collection
+            Collection.findById(req.params.collectionId, (err, foundCollection) => {
+                for (let i = 0; i < foundCollection.games.length; i++)
+                {
+                    if (gameObj.id == foundCollection.games[i].id)
+                    {
+                        duplicate = true
+                    }
+                }
+                if (!duplicate)
+                {
+                    Collection.findByIdAndUpdate(req.params.collectionId, newGame, { new: true }, (err, updatedCollection) => {
+                        if (err) return res.send(err)
+                        res.redirect('/games')
+                    })
+                } else {
+                    res.redirect('/games')
+                }
             })
         })
     })
