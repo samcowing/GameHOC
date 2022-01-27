@@ -1,5 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
+::-webkit-scrollbar {
+  width: 11px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border: 1px solid rgba(128, 128, 128, 0.7);
+  border-radius: 8px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: rgba(122, 121, 121, 0.8);
+  border-radius: 8px;
+  transition: all 0.3s ease-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  transition: all 0.3s ease-in;
+  background-color: rgba(97, 96, 96, 0.8);
+}
+
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: rgb(15, 15, 15);
@@ -103,8 +124,23 @@ body {
 }
 
 .card-title {
-  margin-bottom: 5px;
-  width: 300px;
+  text-decoration: none;
+  color: white;
+}
+
+.card-title:hover {
+  text-decoration: none;
+  color: rgba(197, 196, 196, 0.9);
+}
+
+.card-title h4 {
+  margin-bottom: 20px;
+  width: 200px;
+  font-size: 22px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .image {
@@ -214,9 +250,9 @@ hr {
   .card-title {
     width: 250px;
     font-size: 22px;
-    height: 50px;
+    height: 60px;
     display: flex;
     align-items: center;
-    margin-top: -5px;
+    margin-top: 5px;
   }
 }
