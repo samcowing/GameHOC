@@ -38,9 +38,14 @@
                         <%= collections[i].games.length %>
                     </h4>
                     <p>Games</p>
-                    <% if (collections[i].games.length > 0) { %>
+                    <% if (collections[i].games.length > 1) { %>
                         <% for (let j = 0; j < 2; j++) { %>
-                                <img src=<%= collections[i].games[j].image %>>
+                                <img src="<%= collections[i].games[j].image %>">
+                        <% } %>
+                    <% } %>
+                    <% if (collections[i].games.length === 1) { %>
+                        <% for (let j = 0; j < 1; j++) { %>
+                                <img src="<%= collections[i].games[j].image %>">
                         <% } %>
                     <% } %>
                     <% if (collections[i].games.length === 0) { %>
