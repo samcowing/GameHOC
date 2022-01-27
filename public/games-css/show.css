@@ -371,6 +371,10 @@ header {
   display: none;
 }
 
+#hide-btn {
+  display: none;
+}
+
 .about-game > button {
   border: 1px solid white;
   background-color: rgb(218, 218, 218);
