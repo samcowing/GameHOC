@@ -160,7 +160,8 @@
                 <div id="long-desc-container">
                     <span class="desc-full" id="desc-full"><%-game.description%></span>
                 </div>
-                <button class="btn btn-sm" onclick="document.getElementById('short-desc-container').style.display = 'none'; document.getElementById('long-desc-container').style.display = 'block'">Read more...</button>
+                <button id="show-btn" class="btn btn-sm" onclick="document.getElementById('short-desc-container').style.display = 'none'; document.getElementById('long-desc-container').style.display = 'block';; document.getElementById('hide-btn').style.display = 'block';document.getElementById('show-btn').style.display = 'none'">Read more...</button>
+                <button id="hide-btn" class="btn btn-sm" onclick="document.getElementById('short-desc-container').style.display = 'block'; document.getElementById('long-desc-container').style.display = 'none'; document.getElementById('hide-btn').style.display = 'none';document.getElementById('show-btn').style.display = 'block'">Hide more</button>
             </div>
             
             <div class="extra-data">
