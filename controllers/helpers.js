@@ -1,4 +1,4 @@
-function toggleText() {
+/*function toggleText() {
      const shortDescription = document.getElementById('description')
      const fullDescription = document.getElementById('desc-full')
      if (fullDescription.style.display === "none") {
@@ -17,5 +17,5 @@ function showFull() {
     document.getElementById("desc-full").style.display = "block"
 }
 
-
-module.exports = showFull
+*/
+//module.exports = showFull

@@ -343,7 +343,6 @@ header {
   -webkit-box-orient: vertical;
   line-height: 24px;
   margin-bottom: 10px;
-  /* display: none; */
 }
 
 .description .active {
@@ -361,6 +360,13 @@ header {
   display: -webkit-box;
   -webkit-line-clamp: 100;
   -webkit-box-orient: vertical;
+}
+
+#short-desc-container {
+  display: block;
+}
+
+#long-desc-container {
   display: none;
 }
 
