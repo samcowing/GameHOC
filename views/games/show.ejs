@@ -154,9 +154,13 @@
             
             <div class="about-game">
                 <h3>About</h3>
-                <span class="description" id="description"><%-game.description%></span>
-                <span class="desc-full" id="desc-full"><%-game.description%></span>
-                <button class="btn btn-sm">Read more...</button>
+                <div id="short-desc-container">
+                    <span class="description" id="description"><%-game.description%></span>
+                </div>
+                <div id="long-desc-container">
+                    <span class="desc-full" id="desc-full"><%-game.description%></span>
+                </div>
+                <button class="btn btn-sm" onclick="document.getElementById('short-desc-container').style.display = 'none'; document.getElementById('long-desc-container').style.display = 'block'">Read more...</button>
             </div>
             
             <div class="extra-data">
