@@ -74,6 +74,7 @@ header {
   margin: 0 auto;
   border-radius: 8px;
   box-shadow: 1px 14px 6px -5px rgba(0,0,0,0.8);
+  z-index: -1;
 }
 
 .body-head-container {
@@ -367,6 +368,10 @@ header {
 }
 
 #long-desc-container {
+  display: none;
+}
+
+#hide-btn {
   display: none;
 }
 
