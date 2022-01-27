@@ -141,12 +141,131 @@
             
             <div class="about-game">
                 <h3>About</h3>
-                <p class="description"><%-game.description%></p>
+                <span class="description" id="description"><%-game.description%></span>
+                <span class="desc-full" id="desc-full"><%-game.description%></span>
+                <button class="btn btn-sm">Read more...</button>
+            </div>
+            
+            <div class="extra-data">
+                <div class="data-box platforms">
+                    <h5 class="platforms-title">Platforms</h5>
+                    <p class="platforms-text">
+                        <% for (let i=0; i < game.platforms.length; i++) { %>
+                        <% if ( i < game.platforms.length - 1) { %>
+                        <%= game.platforms[i].platform.name + ',' %>
+                        <% } else { %>
+                        <%= game.platforms[i].platform.name %>
+                        <% } %>
+                        <% } %>
+                    </p>
+                </div>
+                
+                <div class="data-box metascore">
+                    <h5 class="metascore-title">Metascore</h5>
+                    <p class="metascore-text">
+                        <%=game.metacritic%>
+                    </p>
+                </div>
+                
+                <div class="data-box genres">
+                    <h5 class="genres-title">Genres</h5>
+                    <p class="genres-text">
+                        <% for (let i=0; i < game.genres.length; i++) { %>
+                        <% if( i < game.genres.length - 1) { %>
+                        <%= game.genres[i].name + ',' %>
+                        <% } else { %>
+                        <%= game.genres[i].name %>
+                        <% } %>
+                        <% } %>
+                    </p>
+                </div>
+                
+                <div class="data-box released-body">
+                    <h5 class="released-body-title">Release Date</h5>
+                    <p class="released-body-text">
+                        <%=game.released%>
+                    </p>
+                </div>
+                
+                <div class="data-box developer">
+                    <h5 class="developer-title">Developer</h5>
+                    <p class="developer-text">
+                        <% for (let i=0; i < game.developers.length; i++) { %>
+                        <% if( i < game.developers.length - 1) { %>
+                        <%= game.developers[i].name + ',' %>
+                        <% } else { %>
+                        <%= game.developers[i].name %>
+                        <% } %>
+                        <% } %>
+                    </p>
+                </div>
+                
+                <div class="data-box publisher">
+                    <h5 class="publisher-title">Publisher</h5>
+                    <p class="publisher-text">
+                        <% for (let i=0; i < game.publishers.length; i++) { %>
+                        <% if( i < game.publishers.length - 1) { %>
+                        <%= game.publishers[i].name + ',' %>
+                        <% } else { %>
+                        <%= game.publishers[i].name %>
+                        <% } %>
+                        <% } %>
+                    </p>
+                </div>
+                
+                <div class="data-box age-body">
+                    <h5 class="age-body-title">Age Rating</h5>
+                    <p class="age-body-text">
+                        <%=game.esrb_rating.name%>
+                    </p>
+                </div>
+                
+                <div class="data-box tags">
+                    <h5 class="tags-title">Tags</h5>
+                    <p class="tags-text">
+                        <% for (let i=0; i < game.tags.length; i++) { %>
+                        <% if( i < game.tags.length - 1) { %>
+                        <%= game.tags[i].name + ',' %>
+                        <% } else { %>
+                        <%= game.tags[i].name %>
+                        <% } %>
+                        <% } %>
+                    </p>
+                </div>
+                
+                <div class="stores">
+                    <h5 class="stores-title">Where to Buy</h5>
+                    <p class="stores-text">
+                        <% for (let i=0; i < game.stores.length; i++) { %>
+                        <% if( i < game.stores.length - 1) { %>
+                        <%= game.stores[i].store.name + ',' %>
+                        <% } else { %>
+                        <%= game.stores[i].store.name %>
+                        <% } %>
+                        <% } %>
+                    </p>
+                </div>
+                
+                <div class="website">
+                    <h5 class="website-title">Website</h5>
+                    <a href="<%=game.website%> " class="website-text">
+                        <%=game.website%>
+                    </a>
+                </div>
+                
+                <div class="reddit">
+                    <h5 class="reddit-title"><%=game.name%> Reddit</h5>
+                    <a href="<%=game.reddit_url%> " class="reddit-text">
+                        <%=game.reddit_url%>
+                    </a>
+                </div>
             </div>
             
         </div>
-        
     </main>
+    
+    
+    
     
     
     <!-- BOOTSTRAP -->
