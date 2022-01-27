@@ -98,22 +98,27 @@ apiQueryParams = {
     id: 0
 }
 
+let currentGenre = '0';
+
 
 /*****************************/
 /*        API Request        */
 /*****************************/
-function categorySelect(type, id = '0') {
+function categorySelect(type, id = '0', page_size = '30') {
     let requestURL = ''
     switch (type) {
         case ('genres'):
             if (id === '0') {
                 requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
+                             + "&page_size=" + page_size
             } else {
-                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type + "=" + id
+                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
+                             + "&" + type + "=" + id + "&page_size=" + page_size
             }
             break;
         case ('id'):
             requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19"
+                         + "&page_size=" + page_size
             break;
     }
     return requestURL
@@ -159,9 +164,11 @@ router.get('/', (req, res) => {
 })
 router.get('/genres/:id', (req, res) => {
     let allGames;
+    currentGenre = req.params.id;
     const query = categorySelect('genres', req.params.id)
     fetch(query).then((response) => {
         response.json().then((data) => {
+            console.log("Results:", data.results.length)
             allGames = data
         }).then(() => {
             Collection.find({}, (err, foundCollections) => {
@@ -184,7 +191,7 @@ router.get('/:id', (req, res) => {
     let gameScreenshots = []
 
     const query = categorySelect('id', req.params.id)
-    const imgQuery = categorySelect('genres', '0')
+    const imgQuery = categorySelect('genres', currentGenre)
 
     fetch(query).then((response) => {
         response.json().then((gameObj) => {
