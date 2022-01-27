@@ -2,10 +2,15 @@ const express = require('express')
 const res = require('express/lib/response')
 const methodOverride = require('method-override')
 const app = express()
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
 const gamesController = require('./controllers/games')
 const collectionsController = require('./controllers/collections')
+const usersController = require('./controllers/users')
 
-const PORT = 8000
+require('dotenv').config()
+
+const PORT = process.env.PORT
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
@@ -13,7 +18,8 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 /*        Mongoose Config        */
 /*********************************/
 const mongoose = require('mongoose')
-const mongoURI = 'mongodb://127.0.0.1:27017/games'
+const mongoURI = process.env.MONGODBURI
+//const mongoURI = 'mongodb://127.0.0.1:27017/games'
 
 mongoose.connect(mongoURI)
 mongoose.connection.on('connected', () => {
@@ -33,6 +39,14 @@ app.locals.moment = require('moment');
 app.use(express.static('public'));
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: false}))
+app.use(cookieParser())
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUnitinitialized: false
+    })
+)
 
 
 /*****************************/
@@ -40,14 +54,14 @@ app.use(express.urlencoded({extended: false}))
 /*****************************/
 app.use('/games', gamesController)
 app.use('/collections', collectionsController)
+app.use('/auth', usersController)
 
 
 /****************************/
 /*        Home Route        */
 /****************************/
 app.get('/', (req, res)=>{
-    console.log('hitting home route')
-    res.render('home.ejs')
+    res.render('login.ejs')
 })
 
 
