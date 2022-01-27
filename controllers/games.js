@@ -6,7 +6,6 @@ const mongoose = require('mongoose')
 
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-
 /***************************/
 /*        Constants        */
 /***************************/
@@ -104,24 +103,24 @@ let currentGenre = '0';
 /*****************************/
 /*        API Request        */
 /*****************************/
-function categorySelect(type, id = '0', page = '1', page_size = '100', ordering = '-released',
+function categorySelect(type, id = '0', page = '1', page_size = '1000', ordering = '-released',
                         metacritic = '50,100') {
     let requestURL = ''
     switch (type) {
         case ('genres'):
             if (id === '0') {
-                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
-                             + "&ordering=" + ordering + "&page_size=" + page_size + "&page=" + page
+                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&page_size=" + page_size
+                             + "&ordering=" + ordering + "&page=" + page
                              + "&metacritic=" + metacritic
             } else {
                 requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"+ "&" + type
-                             + "=" + id + "&ordering=" + ordering + "&page_size=" + page_size
+                             + "=" + id + "&page_size=" + page_size + "&ordering=" + ordering
                              + "&page=" + page + "&metacritic=" + metacritic
             }
             break;
         case ('id'):
-            requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19"
-                         + "&ordering=" + ordering +  "&page_size=" + page_size + "&page=" + page
+            requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19" + "&page_size=" + page_size
+                         + "&ordering=" + ordering + "&page=" + page
                          + "&metacritic=" + metacritic
             break;
     }
@@ -172,11 +171,10 @@ router.get('/genres/:id', (req, res) => {
     const query = categorySelect('genres', req.params.id)
     fetch(query).then((response) => {
         response.json().then((data) => {
-            console.log("Results:", data.results.length)
             allGames = data
         }).then(() => {
-            Collection.find({}, (err, foundCollections) => {
-                if (err) return res.send(err)
+          Collection.find({}, (err, foundCollections) => {
+              if (err) return res.send(err)
                 res.render('games/index.ejs', {
                     games: allGames.results,
                     genre: allGenres[req.params.id],
