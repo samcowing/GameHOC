@@ -427,7 +427,7 @@ header {
   margin-bottom: 50px;
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 801px) {
   .about-game {
     width: 70%;
   }
