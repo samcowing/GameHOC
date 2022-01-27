@@ -41,7 +41,9 @@
                     </p>
                 </div>
                 
-                <% if (game.esrb_rating.slug==="mature" ) { %>
+                <% if (game.esrb_rating !== null) { %>
+                
+                <% if (game.esrb_rating.slug==="mature") { %>
                 <div class="age-rating active-mature">
                     <p class="age">
                         <% if(game.esrb_rating.slug==="mature" ) { %>
@@ -52,7 +54,7 @@
                         </span>
                     </p>
                 </div>
-                <% } else if (game.esrb_rating.slug==="teen" ) { %>
+                <% } else if (game.esrb_rating.slug==="teen") { %>
                 <div class="age-rating active-teen">
                     <p class="age">
                         <% if(game.esrb_rating.slug==="teen" ) { %>
@@ -71,6 +73,17 @@
                         <% } %>
                         <span>
                             <%=game.esrb_rating.name%>
+                        </span>
+                    </p>
+                </div>
+                <% } %>
+                
+                <% } else { %>
+                <div class="age-rating active-everyone">
+                    <p class="age">
+                        10+
+                        <span>
+                            Everyone
                         </span>
                     </p>
                 </div>
@@ -213,12 +226,22 @@
                     </p>
                 </div>
                 
+                <% if (game.esrb_rating !== null) { %>
                 <div class="data-box age-body">
                     <h5 class="age-body-title">Age Rating</h5>
                     <p class="age-body-text">
                         <%=game.esrb_rating.name%>
                     </p>
                 </div>
+                
+                <% } else { %>
+                <div class="data-box age-body">
+                    <h5 class="age-body-title">Age Rating</h5>
+                    <p class="age-body-text">
+                        10+ Everyone
+                    </p>
+                </div>
+                <% } %>
                 
                 <div class="data-box tags">
                     <h5 class="tags-title">Tags</h5>
