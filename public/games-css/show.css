@@ -35,6 +35,10 @@ header {
   border-radius: 8px;
 }
 
+.background-img {
+  z-index: -1;
+}
+
 .logo {
   font-size: 20px;
   font-family: "Ubuntu", cursive;
@@ -82,7 +86,7 @@ header {
 }
 
 .container {
-  width: 475px;
+  width: 100%;
   display: flex;
   margin-top: 75px;
 }
@@ -185,6 +189,7 @@ header {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  width: 100%;
 }
 
 .collection-button {
@@ -197,13 +202,14 @@ header {
 }
 
 .collection-button:hover,
-.hearcollection-button:focus {
+.collection-button:focus {
   transition: all 0.3s ease-in;
   color: white;
   text-decoration: none;
   background-color: rgba(85, 85, 85, 0.25)!important;
   border: none!important;
   box-shadow: none!important;
+  cursor: pointer;
 }
 
 .collection-button span {
@@ -324,9 +330,10 @@ header {
 }
 
 .about-game {
-  max-width: 95%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20px;
+  padding: 0 10px;
 }
 
 .about-game > h3 {
@@ -343,7 +350,8 @@ header {
   -webkit-box-orient: vertical;
   line-height: 24px;
   margin-bottom: 10px;
-  /* display: none; */
+  width: 95%;
+  display: none;
 }
 
 .description .active {
@@ -361,7 +369,7 @@ header {
   display: -webkit-box;
   -webkit-line-clamp: 100;
   -webkit-box-orient: vertical;
-  display: none;
+  /* display: none; */
 }
 
 .about-game > button {
@@ -417,4 +425,10 @@ header {
   width: 100%;
   margin-top: 20px;
   margin-bottom: 50px;
+}
+
+@media (min-width: 1800px) {
+  .about-game {
+    width: 70%;
+  }
 }
