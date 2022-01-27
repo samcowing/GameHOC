@@ -1,5 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
+::-webkit-scrollbar {
+  width: 11px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border: 1px solid rgba(128, 128, 128, 0.7);
+  border-radius: 8px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: rgba(122, 121, 121, 0.8);
+  border-radius: 8px;
+  transition: all 0.3s ease-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  transition: all 0.3s ease-in;
+  background-color: rgba(97, 96, 96, 0.8);
+}
+
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: rgb(15, 15, 15);
@@ -153,8 +174,8 @@ header {
   height: 150px;
   width: 275px;
   border-radius: 8px;
+  transition: transforms 0.25s ease;
 }
-
 
 .body-content {
   width: 100%;
@@ -172,10 +193,12 @@ header {
   border: none;
   border-radius: 8px;
   background-color: transparent;
+  transition: all 0.3s ease-out;
 }
 
 .collection-button:hover,
 .hearcollection-button:focus {
+  transition: all 0.3s ease-in;
   color: white;
   text-decoration: none;
   background-color: rgba(85, 85, 85, 0.25)!important;
@@ -220,8 +243,8 @@ header {
 }
 
 .rating {
-  color: green;
-  border: 2px solid rgba(0, 128, 0, 0.5);
+  color: #5CB145;
+  border: 1px solid rgba(92, 177, 69, 0.8);
   border-radius: 8px;
   width: 50px;
   height: 30px;
@@ -254,11 +277,12 @@ header {
   border-radius: 8px;
   background-color: transparent;
   color: white;
-  height: 60px;
+  height: 45px;
   width: 475px;
   font-size: 18px;
   margin: 0 auto;
   text-align: center;
+  transition: all 0.3s ease-out;
 }
 
 .review-btn:focus,
@@ -273,7 +297,7 @@ header {
   color: rgba(255, 255, 255, 0.8);
   margin: 0 auto;
   position: relative;
-  height: 60px;
+  height: 45px;
   font-weight: 500;
 }
 
@@ -287,17 +311,110 @@ header {
   font-weight: 400!important;
 }
 
-.review-btn:hover span {
+.review-btn:hover span, 
+.review-btn:focus span {
   transition: all 0.3s ease-in;
   color: rgba(37, 37, 37);
 }
 
-.review-btn:hover button {
+.review-btn:hover button,
+.review-btn:focus button {
   transition: all 0.3s ease-in;
   color: rgba(53, 53, 53, 0.9);
 }
 
 .about-game {
-  width: 450px;
+  max-width: 95%;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
+.about-game > h3 {
+  font-size: 24px;
+}
+
+.description {
+  font-size: 14px;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  line-height: 24px;
+  margin-bottom: 10px;
+  /* display: none; */
+}
+
+.description .active {
+  overflow: "";
+  text-overflow: "";
+  display: -webkit-box;
+  -webkit-line-clamp: 50;
+  -webkit-box-orient: vertical;
+}
+
+.desc-full {
+  font-size: 14px;
+  line-height: 24px;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 100;
+  -webkit-box-orient: vertical;
+  display: none;
+}
+
+.about-game > button {
+  border: 1px solid white;
+  background-color: rgb(218, 218, 218);
+  padding: 0 10px;
+  font-size: 12px;
+  margin-top: -15px;
+}
+
+.about-game > button:hover,
+.about-game > button:focus {
+  transition: all 0.3s ease-in;
+  background-color: rgb(146, 145, 145);
+  box-shadow: none;
+}
+
+.extra-data {
+  margin: 0 auto;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.data-box {
+  width: 45%;
+  text-align: left;
+  margin-right: 5%;
+}
+
+.extra-data h5 {
+  font-size: 14px;
+  color: rgba(75, 74, 74, 0.8);
+}
+
+.tags {
+  width: 100%;
+}
+
+.stores {
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.website {
+  width: 100%;
+}
+
+.reddit {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
