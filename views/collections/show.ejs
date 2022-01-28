@@ -40,7 +40,9 @@
                     <div class="card-body">
                         <img class="img-lg" src="<%= games[i].background_image %>">
                         <div class="game-info">
-                            <h3><%= games[i].name %></h3>
+                            <div class="card-title">
+                                <h3><%= games[i].name %></h3>
+                            </div>
                             <p>Rating: <%= games[i].rating %></p>
                             <p>Release Date: <%= games[i].released %></p>
                             <% if (games[i].esrb_rating !== null) { %>
