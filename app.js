@@ -4,6 +4,7 @@ const methodOverride = require('method-override')
 const app = express()
 const gamesController = require('./controllers/games')
 const collectionsController = require('./controllers/collections')
+const moment = require('moment');
 
 const PORT = 8000
 
@@ -45,9 +46,27 @@ app.use('/collections', collectionsController)
 /****************************/
 /*        Home Route        */
 /****************************/
+
+const query = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19&ordering=-rating&metacritic=50,100"
+const query2 = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19&ordering=-released&dates=2021-01-27," + moment().format("YYYY-MM-DD") + "&metacritic=50,100"
+
 app.get('/', (req, res)=>{
     console.log('hitting home route')
-    res.render('home.ejs')
+    fetch(query).then((response) => {
+        response.json().then((data) => {
+            topRated = data.results
+        }).then(() => {
+            fetch(query2).then((response2) => {
+                response2.json().then((data2) => {
+                    newReleases = data2.results
+                    res.render('home.ejs', {
+                        topRated: topRated,
+                        newReleases: newReleases,
+                    })
+                })
+            })
+        })
+    })
 })
 
 
