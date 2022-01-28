@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: rgb(15, 15, 15);
+}
+
+.body-head-container {
+    color: white;
+    background-color: rgba(65, 65, 65, 0.8)
+}
+
+.body-head-title {
+    padding-top: 20px;
+    text-align: center;
+}
