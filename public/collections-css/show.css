@@ -323,3 +323,8 @@ img {
 
 }
   
+@media (max-width: 450px) {
+    .card-deck {
+        width: 90%;
+    }
+}

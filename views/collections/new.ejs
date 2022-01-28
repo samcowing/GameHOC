@@ -16,12 +16,23 @@
             <h1>New Collection Page</h1>
         </div>
     </div>
-    <a href="/collections">Back</a>
-    <p>Create a new collection</p>
+    <div class="top-btns">
+        <a href="/collections">Back to Collections</a>
+    </div>
+    <div class="title">
+        <h4>Create a new collection</h4>
+    </div>
+
     <form action="/collections" method="POST">
-        <input type="text" name="title" placeholder="Give your collection a title">
-        <input type="text" name="description" placeholder="Tell us about your collection">
-        <input type="submit" value="Create new collection">
+        <div class="form-title">
+            <input class="title-input" type="text" name="title" placeholder="Give your collection a title">
+        </div>
+        <div class="form-desc">
+            <input class="desc-input" type="text" name="description" placeholder="Tell us about your collection">
+        </div>
+        <div class="submit">
+            <input class="form-submit" type="submit" value="Create Collection">
+        </div>
     </form>
 
     <!-- BOOTSTRAP -->

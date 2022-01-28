@@ -16,13 +16,23 @@
             <h1>Edit Collection Page</h1>
         </div>
     </div>
-    <a href="/collections">Go to home page</a>
-    <a href="/collections/<%=collection._id%>">Go to show page</a>
-    <p>Edit collection name and description</p>
+    <div class="top-btns">
+        <a href="/collections">Go to home page</a>
+        <a href="/collections/<%=collection._id%>">Go to show page</a>
+    </div>
+    <div class="title">
+        <h4>Edit collection name and description</h4>
+    </div>
     <form action="/collections/<%=collection._id%>?_method=PUT" method="POST">
-        <input type="text" name="title" value="<%= collection.title %>">
-        <input type="text" name="description" value="<%= collection.description %>">
-        <input type="submit" value="Edit collection">
+        <div class="form-title">
+            <input class="title-input" type="textarea" name="title" value="<%= collection.title %>" placeholder="Give your collection a title">
+        </div>
+        <div class="form-desc">
+            <input class="desc-input" type="text" name="description" value="<%= collection.description %>" placeholder="Tell us about your collection">
+        </div>
+        <div class="submit">
+            <input class="form-submit" type="submit" value="Save Edits">
+        </div>
     </form>
 
     <!-- BOOTSTRAP -->
