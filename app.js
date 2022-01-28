@@ -8,6 +8,7 @@ const gamesController = require('./controllers/games')
 const collectionsController = require('./controllers/collections')
 const usersController = require('./controllers/users')
 const User = require('./models/User')
+const moment = require('moment');
 
 require('dotenv').config()
 
@@ -59,11 +60,28 @@ app.use('/auth', usersController)
 /****************************/
 /*        Home Route        */
 /****************************/
+
+const query = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19&ordering=-rating&metacritic=50,100"
+const query2 = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19&ordering=-released&dates=2021-01-27," + moment().format("YYYY-MM-DD") + "&metacritic=50,100"
+
 app.get('/', (req, res)=>{
     User.find({}, (err, foundUsers) => {
-        console.log('Users:', foundUsers.length)
-        res.render('login.ejs', {
-            users: foundUsers
+        console.log('hitting home route')
+        fetch(query).then((response) => {
+            response.json().then((data) => {
+                topRated = data.results
+            }).then(() => {
+                fetch(query2).then((response2) => {
+                    response2.json().then((data2) => {
+                        newReleases = data2.results
+                        res.render('home.ejs', {
+                            topRated: topRated,
+                            newReleases: newReleases,
+                            users: foundUsers
+                        })
+                    })
+                })
+            })
         })
     })
 })

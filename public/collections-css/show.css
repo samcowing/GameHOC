@@ -8,8 +8,13 @@ body {
 img {
     border-radius: 8px;
     box-shadow: 1px 6px 6px -3px rgba(0, 0, 0, 0.5);
-    width: 250px;
+    width: 100%;
     margin-bottom: 10px;
+    min-height: 124px;
+}
+
+.img-lg {
+    display: none;
 }
 
 .body-head-container {
@@ -27,6 +32,8 @@ img {
 .body-head-items {
     text-align: center;
     color: white;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 .deleteColl { 
@@ -68,22 +75,29 @@ img {
 .add:focus {
     color: white;
 }
-/*
+
+.games-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
 .card-deck {
     display: inline-flex;
-    flex-wrap: wrap;
-    width: 250px;
     padding-top: 20px;
-    margin: 0 auto;
+    margin: auto;
+    width: 45%;
 }
-*/
+
 .card {
     margin: 0 auto;
-    width: 200px;
+    width: 100%;
     background-color: #616161;
     border: 2px solid white;
     border-radius: 8px;
     color: white;
+    height: 525px;
 }
   
 .card-body {
@@ -92,12 +106,81 @@ img {
   
 .card-title {
     margin-bottom: 5px;
-    width: 300px;
+    max-height: 100px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-@media (min-width: 800px) {
+.view, .deleteGame {
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    padding: 10px;
+    margin-top: 10px;
+    border: 2px solid white;
+}
+
+.view {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.delete-form {
+    width: 50%;
+    margin-left: 10px;
+}
+  
+.view:hover,
+.view:focus {
+    color: white;
+    text-decoration: none;
+    background-color: #383838;
+}
+
+.deleteGame:hover,
+.deleteGame:focus {
+    color: white;
+    text-decoration: none;
+    background-color: #383838;
+}
+
+.game-info p {
+    margin: 0;
+    overflow: hidden;
+}
+
+.game-btns {
+    display: flex;
+    justify-self: end;
+}
+
+.metacritic-rating {
+    border: 1px solid white;
+    border-radius: 8px;
+    width: 30px;
+    padding-left: 5px;
+    margin-top: 15px;
+}
+
+
+@media (min-width: 900px) {
     body {
       text-align: center;
+    }
+    .img-sm {
+        display: none;
+    }
+
+    .img-lg {
+        display: flex;
+        width: auto;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        max-width: 280px;
     }
   
     .body-head-container {
@@ -107,13 +190,14 @@ img {
     .body-head-title {
         padding-top: 20px;
         text-align: left;
-        padding-left: 30px;
+        margin-left: 11%;
     }
 
     .body-head-items {
         display: flex;
         justify-content: space-between;
-        padding-right: 30px;
+        width: 79%;
+        margin-left: 11%;
     }
 
     .body-head-btns {
@@ -133,7 +217,6 @@ img {
     .body-head-descr {
         padding-right: 40px;
         text-align: left;
-        padding-left: 30px;
         padding-top: 18px;
     }
     
@@ -141,18 +224,107 @@ img {
         justify-content: flex-end;
     }
 
-    .image {
-        height: 225px;
-    }
-    
     .card-deck {
-        display: inline-flex;
+        display: flex;
         margin: auto;
         margin-bottom: 20px;
-        text-align: center;
-        width: 500px;
-        height: 380px;
+        width: 90%;
+        align-items: unset;
+        flex-flow: row;
+    
+    }
+
+    .card {
+        display: flex;
+        margin: 0 auto;
+        background-color: #616161;
+        border: 2px solid white;
+        border-radius: 8px;
+        color: white;
+        height: 200px;
+    }
+
+    .card-body {
+       display: flex;
+       padding: 0;
+    }
+
+    .game-info {
+        margin-top: 20px;
+        padding-left: 15px;
+        text-align: left;
+        width: 50%;
+    }
+
+    .game-btns-container {
+        text-align: right;
+        width: 35%;
+        background-origin: padding-box;
+        border-bottom: 195px solid #383838;
+        border-left: 75px solid transparent;
+        border-bottom-right-radius: 10px;
+    }
+
+    .metacritic {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        padding-top: 20px;
+        padding-right: 20px;
+    }
+
+    .metacritic-rating {
+        width: 30px;
+        padding-right: 4px;
+        margin-top: none;
+        margin-bottom: 25px;
     }
     
+    .game-info p {
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .game-btns {
+        justify-content: flex-end;
+        display: block;
+        padding-right: 20px;
+        text-align: right;
+    }
+    
+    .view {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .deleteGame {
+        position: relative;
+        width: 98px;
+    }
+
+    .view:hover,
+    .view:focus {
+        color: white;
+        text-decoration: none;
+        background-color: #555454;
+    }
+
+    .deleteGame:hover,
+    .deleteGame:focus {
+        color: white;
+        text-decoration: none;
+        background-color: #555454;
+    }
+
+    .delete-form {
+        width: unset;
+        padding-top: 10px;
+    }
+
 }
   
+@media (max-width: 450px) {
+    .card-deck {
+        width: 90%;
+    }
+}
