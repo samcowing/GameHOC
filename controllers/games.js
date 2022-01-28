@@ -178,7 +178,8 @@ router.get('/genres/:id', (req, res) => {
                 res.render('games/index.ejs', {
                     games: allGames.results,
                     genre: allGenres[req.params.id],
-                    collections: foundCollections
+                    collections: foundCollections,
+                    user: req.session.currentUser
                 })
             })
         })
@@ -209,7 +210,8 @@ router.get('/:id', (req, res) => {
 
                 res.render('games/show.ejs', {
                     game: currentGame,
-                    screenshots: gameScreenshots
+                    screenshots: gameScreenshots,
+                    user: req.session.currentUser
                 })
             })
         }))

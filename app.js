@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser')
 const gamesController = require('./controllers/games')
 const collectionsController = require('./controllers/collections')
 const usersController = require('./controllers/users')
+const User = require('./models/User')
 
 require('dotenv').config()
 
@@ -18,8 +19,7 @@ const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch
 /*        Mongoose Config        */
 /*********************************/
 const mongoose = require('mongoose')
-const mongoURI = process.env.MONGODBURI
-//const mongoURI = 'mongodb://127.0.0.1:27017/games'
+const mongoURI = process.env.MONGODBURI || 'mongodb://127.0.0.1:27017/gamehoc'
 
 mongoose.connect(mongoURI)
 mongoose.connection.on('connected', () => {
@@ -39,12 +39,11 @@ app.locals.moment = require('moment');
 app.use(express.static('public'));
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: false}))
-app.use(cookieParser())
 app.use(
     session({
         secret: process.env.SECRET,
         resave: false,
-        saveUnitinitialized: false
+        saveUninitialized: false
     })
 )
 
@@ -61,7 +60,12 @@ app.use('/auth', usersController)
 /*        Home Route        */
 /****************************/
 app.get('/', (req, res)=>{
-    res.render('login.ejs')
+    User.find({}, (err, foundUsers) => {
+        console.log('Users:', foundUsers.length)
+        res.render('login.ejs', {
+            users: foundUsers
+        })
+    })
 })
 
 

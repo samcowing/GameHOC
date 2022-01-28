@@ -16,6 +16,11 @@
         <input type="password" name="password" placeholder="password" /><br />
         <button type="submit">Login</button>
     </form>
+
+    <% for (let i = 0; i < users.length; i++) { %>
+        <p>Username: <%= users[i].username %></p>
+        <p>Email: <%= users[i].email %></p>
+    <% } %>
     
     <h4>Registration</h4>
     <form action="/auth/registration" method="POST">

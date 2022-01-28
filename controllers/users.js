@@ -21,6 +21,7 @@ router.post('/login', (req, res) => {
             if (bcrypt.compareSync(req.body.password, foundUser.password))
             {
                 console.log('Logged in>>', foundUser._id)
+                req.session.currentUser = foundUser
                 res.redirect('/')
             } else {
                 console.log('Login failed')
@@ -49,8 +50,8 @@ router.post('/registration', (req, res) => {
 
     User.create(userDbEntry, (err, createdUser) => {
         if (err) return res.send(err)
-        req.sesson.currentUser = createdUser
-        console.log('Registration successfull')
+        req.session.currentUser = createdUser
+        console.log('Registration successful')
         res.redirect('/')
     })
 })
