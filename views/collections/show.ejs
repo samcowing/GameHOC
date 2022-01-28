@@ -31,25 +31,45 @@
             </div>
         </div>
     </div>
+    <div class="games-container">
     <% if (collection.games.length > 0) { %>
         <% for (let i=0; i < games.length; i++) { %>
          <div class="card-deck">
                 <div class="card">
-                    <img src="<%= games[i].background_image %>">
+                    <img class="img-sm" src="<%= games[i].background_image %>">
                     <div class="card-body">
-                        <h3><%= games[i].name %></h3>
-                        <p>Rating: <%= games[i].rating %></p>
-                        <p>Release Date: <%= games[i].released %></p>
-                        <p><%= games[i].esrb_rating %></p>
-                        <a href="/games/<%=games[i].id%>">View</a> 
-                        <form action="/collections/<%=collection._id%>/<%=games[i].id%>?_method=DELETE" method="POST">
-                            <input type="submit" value="Delete">
-                        </form>
+                        <img class="img-lg" src="<%= games[i].background_image %>">
+                        <div class="game-info">
+                            <div class="card-title">
+                                <h3><%= games[i].name %></h3>
+                            </div>
+                            <p>Rating: <%= games[i].rating %></p>
+                            <p>Release Date: <%= games[i].released %></p>
+                            <% if (games[i].esrb_rating !== null) { %>
+                                <p><%= games[i].esrb_rating.name %></p>
+                            <% } else { %>
+                                <p>10+ Everyone</p>
+                            <% } %>
+                        </div>
+                        <div class="game-btns-container">
+                            <div class="metacritic">
+                                <p class="metacritic-rating"><%= games[i].metacritic %></p>
+                            </div>
+                            <div class="shape"></div>
+                            <div class="game-btns">
+                                <a class="view" href="/games/<%=games[i].id%>">View</a> 
+                                <br class="space"/>
+                                <form class="delete-form" action="/collections/<%=collection._id%>/<%=games[i].id%>?_method=DELETE" method="POST">
+                                    <input class="deleteGame" type="submit" value="Delete">
+                                </form>
+                            </div> 
+                        </div>
                     </div>
                 </div>
             </div>
         <% } %> 
     <% } %>
+    </div>
     
 
     <!-- BOOTSTRAP -->

@@ -9,6 +9,8 @@ img {
     border-radius: 8px;
     box-shadow: 1px 6px 6px -3px rgba(0, 0, 0, 0.5);
     max-height: 110px;
+    width: 200px;
+    overflow: hidden;
     margin-bottom: 10px;
 }
 .empty {
@@ -83,6 +85,15 @@ h4 {
     padding-bottom: 5px;
 }
 
+.card-title-link {
+    color: white;
+}
+
+.card-title-link:hover {
+    text-decoration: none;
+    color: rgba(197, 196, 196, 0.9);
+}
+
 .edit, .delete {
     color: white;
     font-size: 15px;
@@ -98,12 +109,14 @@ h4 {
 .edit:focus {
     color: white;
     text-decoration: none;
+    background-color: #383838;
 }
 
 .delete:hover,
 .delete:focus {
     color: white;
     text-decoration: none;
+    background-color: #383838;
 }
 
 .buttonContainer {
