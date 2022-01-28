@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">
-                        <a href="/collections/<%= collections[i]._id %>">
+                        <a class="card-title-link" href="/collections/<%= collections[i]._id %>">
                             <%= collections[i].title %>
                         </a>
                     </h3>
@@ -56,7 +56,7 @@
                             <input class="delete" type="submit" value="Delete Collection" >
                         </form>
                         <a class="edit" href="/collections/<%=collections[i]._id%>/edit">Edit Collection</a> <br/>  
-                        <a class="edit" href="/collections/<%=collections[i]._id%>/addgames">Find Games</a>  
+                        <a class="edit" href="/collections/<%=collections[i]._id%>">View Collection</a>  
                     </div>
                 </div>
             </div>
