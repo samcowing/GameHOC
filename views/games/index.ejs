@@ -31,15 +31,11 @@
         
         <h1 class="body-title">Browse Games</h1>
         <div class="genre-btn-forms">
-            <a href="/games/genres/15">
-                <button class="genre-btn">Sports</button>
-            </a>
-            <a href="/games/genres/4">
-                <button class="genre-btn">Action</button>
-            </a>
-            <a href="/games/genres/11">
-                <button class="genre-btn">Arcade</button>
-            </a>
+            <% for (let i = 1; i < allGenres.length; i++) { %>
+                <a href="/games/genres/<%= allGenres[i].id %>">
+                    <button class="genre-btn"><%= allGenres[i].name %></button>
+                </a>
+            <% } %>
             
             <!-- <form action="/games/genres/5" method="POST"> -->
             <!--     <input class="genre-btn" type="submit" value="Sports"> -->
@@ -52,17 +48,12 @@
             <!-- </form> -->
             
         </div>
-        <cite class="genre-desc-title">Brief Genre Description</cite>
-        <p class="genre-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque nihil voluptatem
-            voluptatum
-            est ab perspiciatis
-            ad possimus tenetur veritatis consequuntur. Dignissimos iure sed, eaque architecto hic officiis placeat
-            autem
-            vero?</p>
+        <cite class="genre-desc-title"><%= genre.name %></cite>
+        <p class="genre-desc"><%= genre.description %></p>
     </div>
     
     <% for (let i=0; i < games.length; i++) { %>
-    
+    <% if (games[i].background_image !== null) { %>
     <div class="card-deck">
         <div class="card">
             <a href="/games/<%= games[i].id %>">
@@ -159,7 +150,7 @@
             </div>
         </div>
     </div>
-    
+    <% } %>
     <% } %>
     
     
