@@ -105,24 +105,24 @@ let currentGenre = '0';
 /*        API Request        */
 /*****************************/
 function categorySelect(type, id = '0', page = '1', page_size = '100', ordering = '-released',
-                        metacritic = '50,100') {
+    metacritic = '50,100') {
     let requestURL = ''
     switch (type) {
         case ('genres'):
             if (id === '0') {
                 requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"
-                             + "&ordering=" + ordering + "&page_size=" + page_size + "&page=" + page
-                             + "&metacritic=" + metacritic
+                    + "&ordering=" + ordering + "&page_size=" + page_size + "&page=" + page
+                    + "&metacritic=" + metacritic
             } else {
-                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19"+ "&" + type
-                             + "=" + id + "&ordering=" + ordering + "&page_size=" + page_size
-                             + "&page=" + page + "&metacritic=" + metacritic
+                requestURL = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19" + "&" + type
+                    + "=" + id + "&ordering=" + ordering + "&page_size=" + page_size
+                    + "&page=" + page + "&metacritic=" + metacritic
             }
             break;
         case ('id'):
             requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19"
-                         + "&ordering=" + ordering +  "&page_size=" + page_size + "&page=" + page
-                         + "&metacritic=" + metacritic
+                + "&ordering=" + ordering + "&page_size=" + page_size + "&page=" + page
+                + "&metacritic=" + metacritic
             break;
     }
     return requestURL
@@ -230,15 +230,12 @@ router.get('/collection-add/:gameId/:collectionId', (req, res) => {
             let newGame = { $push: { games: { id: gameObj.id, name: gameObj.name, image: gameObj.background_image, } } }
             // Make sure game is not already in collection
             Collection.findById(req.params.collectionId, (err, foundCollection) => {
-                for (let i = 0; i < foundCollection.games.length; i++)
-                {
-                    if (gameObj.id == foundCollection.games[i].id)
-                    {
+                for (let i = 0; i < foundCollection.games.length; i++) {
+                    if (gameObj.id == foundCollection.games[i].id) {
                         duplicate = true
                     }
                 }
-                if (!duplicate)
-                {
+                if (!duplicate) {
                     Collection.findByIdAndUpdate(req.params.collectionId, newGame, { new: true }, (err, updatedCollection) => {
                         if (err) return res.send(err)
                         res.redirect(`/games/genres/${currentGenre}`)

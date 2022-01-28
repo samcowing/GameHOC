@@ -16,7 +16,6 @@
 </head>
 
 <body>
-    <img class="background-img" src="<%=game.background_image%> " alt="">
     
     <header>
         <a class="nav-a" href="">
@@ -30,77 +29,94 @@
         </div>
     </header>
     
+    <div class="background-img-sm" style="background-image: url(<%=game.background_image%>);">
+    </div>
+    
+    <div class="background-img-large" style="background: linear-gradient(rgba(0, 0, 0, 0.6) 30%, rgba(15, 15, 15, 1) 50%), url(<%=game.background_image%>) 50% 0 no-repeat;">
+        
+        <!-- radial-gradient(50% 35%, circle cover, #FEFEFE 40%, #FFFFFF 47%, #151515 78%) -->
+        
+    </div>
     
     <main>
+        
         <div class="body-head-container">
             
-            <div class="container">
-                <div class="released">
-                    <p class="release-date">
-                        <%=game.released%>
-                    </p>
+            <div class="title-info-container">
+                <div class="container">
+                    <div class="released">
+                        <p class="release-date">
+                            <%=game.released%>
+                        </p>
+                    </div>
+                    
+                    <% if (game.esrb_rating !== null) { %>
+                    
+                    <% if (game.esrb_rating.slug==="mature") { %>
+                    <div class=" age-rating active-mature">
+                        <p class="age">
+                            <% if(game.esrb_rating.slug==="mature" ) { %>
+                            17+
+                            <% } %>
+                            <span>
+                                <%=game.esrb_rating.name%>
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <% } else if (game.esrb_rating.slug==="teen") { %>
+                    <div class="age-rating active-teen">
+                        <p class="age">
+                            <% if(game.esrb_rating.slug==="teen" ) { %>
+                            13+
+                            <% } %>
+                            <span>
+                                <%=game.esrb_rating.name%>
+                            </span>
+                        </p>
+                    </div>
+                    <% } else { %>
+                    
+                    <div class="age-rating active-everyone">
+                        <p class="age">
+                            <% if(game.esrb_rating.slug==="everyone" ) { %>
+                            10+
+                            <% } %>
+                            <span>
+                                <%=game.esrb_rating.name%>
+                            </span>
+                        </p>
+                    </div>
+                    <% } %>
+                    
+                    <% } else { %>
+                    <div class="age-rating active-everyone">
+                        <p class="age">
+                            10+
+                            <span>
+                                Everyone
+                            </span>
+                        </p>
+                    </div>
+                    <% } %>
+                    
                 </div>
                 
-                <% if (game.esrb_rating !== null) { %>
-                
-                <% if (game.esrb_rating.slug==="mature") { %>
-                <div class="age-rating active-mature">
-                    <p class="age">
-                        <% if(game.esrb_rating.slug==="mature" ) { %>
-                        17+
-                        <% } %>
-                        <span>
-                            <%=game.esrb_rating.name%>
-                        </span>
-                    </p>
-                </div>
-                <% } else if (game.esrb_rating.slug==="teen") { %>
-                <div class="age-rating active-teen">
-                    <p class="age">
-                        <% if(game.esrb_rating.slug==="teen" ) { %>
-                        13+
-                        <% } %>
-                    <p>
-                        <%=game.esrb_rating.name%>
-                        </span>
-                    </p>
-                </div>
-                <% } else { %>
-                <div class="age-rating active-everyone">
-                    <p class="age">
-                        <% if(game.esrb_rating.slug==="everyone" ) { %>
-                        10+
-                        <% } %>
-                        <span>
-                            <%=game.esrb_rating.name%>
-                        </span>
-                    </p>
-                </div>
-                <% } %>
-                
-                <% } else { %>
-                <div class="age-rating active-everyone">
-                    <p class="age">
-                        10+
-                        <span>
-                            Everyone
-                        </span>
-                    </p>
-                </div>
-                <% } %>
-                
+                <h1 class="body-title">
+                    <%=game.name%>
+                </h1>
             </div>
             
-            <h1 class="body-title">
-                <%=game.name%>
-            </h1>
-            
             <div class="screenshot-container">
-                <% for (let i = 1; i < screenshots.length; i++) { %>
-                <div class="screenshots">
-                    <img src="<%=screenshots[i].image%>" alt="Game screenshots">
+                <div class="screenshots-list">
+                    <div class="display-picture">
+                    </div>
+                    <% for (let i = 1; i < screenshots.length; i++) { %>
+                    <div class="screenshots">
+                        <img src="<%=screenshots[i].image%>" alt="Game screenshots">
+                    </div>
+                    <% } %>
                 </div>
-                <% } %>
             </div>
             
         </div>
