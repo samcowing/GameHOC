@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Italiana&family=M+PLUS+Rounded+1c:wght@300;400;500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
+/* -------------------------------- */
+/* -------- PSUEDO-ELEMENTS ------- */
+/* -------------------------------- */
+
 ::-webkit-scrollbar {
   width: 11px;
   height: 10px;
@@ -21,16 +25,137 @@
   background-color: rgba(97, 96, 96, 0.8);
 }
 
+/* --- */
+
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: rgb(15, 15, 15);
 }
 
-.header {
+/* -------------------------------- */
+/* ------------ HEADER ------------ */
+/* -------------------------------- */
+
+header {
   color: white;
   box-shadow: 1px 9px 7px -4px rgba(0, 0, 0, 0.7);
   position: relative;
+  height: 50px;
 }
+
+.nav-a {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  height: 30px;
+  padding: 0 10px;
+  font-size: 16px;
+  background-color: rgba(32, 32, 32, 0.8);
+  border: none;
+  border-radius: 8px;
+}
+
+.nav-a:hover {
+  text-decoration: none;
+}
+
+/* -------------------------------- */
+/* ----------- SIDE-NAV ----------- */
+/* -------------------------------- */
+
+#sidebar {
+  margin-left: -250px;
+  min-width: 250px;
+  max-width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgb(90, 90, 90);
+  color: #fff;
+  z-index: 9999;
+  transition: all 0.3s ease-in;
+  text-align: left;
+}
+
+#sidebar.active {
+  margin-left: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#sidebar .sidebar-header {
+  padding: 10px;
+  background: rgb(70, 69, 69);
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  color: rgba(64, 64, 64, 0.8);
+  background: #fff;
+  transition: all 0.3s ease-in;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+  color: rgba(64, 64, 64, 0.8);
+  background-color: white;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: block;
+  margin-top: 3px;
+}
+
+ul ul a {
+  font-size: 14px!important;
+  padding-left: 20px!important;
+  background-color: transparent;
+  font-weight: 500;
+}
+
+#dismissSidebar {
+    position: relative;
+    top: 4px;
+    left: 10px;
+    width: auto;
+    height: 30px;
+    padding: 0 10px;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* -------------------------------- */
+/* ------------- BODY ------------- */
+/* -------------------------------- */
 
 .logo {
   font-size: 20px;
@@ -88,11 +213,13 @@ body {
 
 .genre-btn-forms {
   display: flex;
-  justify-content: space-evenly;
-  width: 300px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
   margin: 0 auto;
-  margin-bottom: 15px;
-  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-top: -10px;
+  font-size: 14px;
 }
 
 .genre-btn {
@@ -100,8 +227,10 @@ body {
   border-radius: 8px;
   background-color: transparent;
   color: white;
-  width: 80px;
-  padding: 3px;
+  width: auto;
+  padding: 0 15px;
+  margin-right: 10px;
+  margin-top: 15px;
 }
 
 .genre-btn:focus {
@@ -227,15 +356,37 @@ hr {
 @media (min-width: 667px) {
   body {
     text-align: center;
+    width: 100%!important;
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .body-head-container {
+    text-align: center;
+    margin: 0 auto;
   }
 
   .image {
-    height: 225px;
+    height: 200px;
+  }
+
+  .genre-btn-forms {
+    width: 50%;
+    font-size: 15px;
+  }
+
+  .genre-btn {
+    margin-right: 20px;
+    margin-top: 20px;
   }
 
   .card-deck {
     display: inline-flex;
-    width: 25em;
+    width: 21em;
     margin: auto;
     margin-bottom: 20px;
     text-align: left;
@@ -247,6 +398,107 @@ hr {
     opacity: 0;
   }
 
+  .wrapper {
+    width: 90%!important;
+    margin-left: 120px;
+  }
+
+  header {
+    display: none;
+  }
+
+#dismissSidebar {
+  display: none;
+}
+
+#sidebar {
+    min-width: 240px;
+    max-width: 240px;
+    background-color: transparent;
+    color: #fff;
+    transition: all 0.4s ease-in;
+    margin-left: 0;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#sidebar ul li {
+  margin-bottom: 20px;
+}
+
+#sidebar .sidebar-header {
+    padding-top: 10px;
+    padding-bottom: 6px;
+    padding-right: 35px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    margin-bottom: 40px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#sidebar ul li a {
+    padding-left: 15px;
+    font-weight: 500;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: rgba(64, 64, 64, 0.8);
+}
+
+.dropdown-toggle::after {
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+ul ul a {
+    font-size: 15px!important;
+}
+
+ul ul a:last-child {
+  margin-bottom: -15px!important;
+}
+
+.genre-desc-title {
+  font-size: 18px;
+}
+
+  .card-container {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .image {
+    height: 200px;
+  }
+
+  .genre-btn-forms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  .genre-btn {
+    margin-right: 20px;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+
+  .genre-btn:hover,
+  .genre-btn:active {
+    background-color: rgba(197, 196, 196, 0.9);
+    color: rgba(64, 64, 64, 0.8);
+  }
+
   .card-title {
     width: 250px;
     font-size: 22px;
@@ -254,5 +506,49 @@ hr {
     display: flex;
     align-items: center;
     margin-top: 5px;
+  }
+}
+
+
+@media (min-width: 1600px) {
+
+  .wrapper {
+    margin-right: 50px;
+  }
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    text-align: left;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    padding-left: 15px;
+}
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+
+ul ul a {
+    font-size: 15px!important;
+    background-color: transparent;
+    font-weight: 500;
+}
+
+  .genre-btn-forms {
+    width: 40%;
+    margin-bottom: 15px;
+    margin-top: 10px;
   }
 }
