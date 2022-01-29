@@ -65,25 +65,30 @@ const query = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be1
 const query2 = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19&ordering=-released&dates=2021-01-27," + moment().format("YYYY-MM-DD") + "&metacritic=50,100"
 
 app.get('/', (req, res)=>{
-    User.find({}, (err, foundUsers) => {
-        console.log('hitting home route')
-        fetch(query).then((response) => {
-            response.json().then((data) => {
-                topRated = data.results
-            }).then(() => {
-                fetch(query2).then((response2) => {
-                    response2.json().then((data2) => {
-                        newReleases = data2.results
-                        res.render('home.ejs', {
-                            topRated: topRated,
-                            newReleases: newReleases,
-                            users: foundUsers
-                        })
+    fetch(query).then((response) => {
+        response.json().then((data) => {
+            topRated = data.results
+        }).then(() => {
+            fetch(query2).then((response2) => {
+                response2.json().then((data2) => {
+                    newReleases = data2.results
+                    res.render('home.ejs', {
+                        topRated: topRated,
+                        newReleases: newReleases,
+                        user: req.session.currentUser
                     })
                 })
             })
         })
     })
+})
+
+
+/*****************************/
+/*        Login Route        */
+/*****************************/
+app.get('/login', (req, res) => {
+    res.render('login.ejs')
 })
 
 
