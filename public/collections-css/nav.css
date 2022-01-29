@@ -249,5 +249,16 @@ ul ul a {
   header {
     display: none;
   }
+  .games-container { 
+    margin-left: 150px;
+  }
+
+  .body-head-container {
+    margin-left: 20%;
+  }
+
+  .head-items-container {
+    margin-left: 20%;
+  }
 
 }

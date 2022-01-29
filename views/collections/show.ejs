@@ -88,24 +88,27 @@
             </h2>
         </div>
     </header>
-
-    <div class="body-head-container">
-        <div class="body-head-title">
-            <h1><%= collection.title %></h1>
+    <div class="head-container">
+        <div class="body-head-container">
+            <div class="body-head-title">
+                <h1><%= collection.title %></h1>
+            </div>
         </div>
     </div>
-    <div class="body-head-items">
-        <div class="body-head-descr"><h4><%= collection.description %></h4></div>
-        <div class="body-head-btns">
-            <div class="top-btns">
-                <a class="edit" href="/collections">Back</a>
-                <a class="edit" href="/collections/<%=collection._id%>/edit">Edit</a>   
-                <a class="add" href="/collections/<%=collection._id%>/addgames">Add Games</a>
-            </div> 
-            <div class="deleteColl">
-                <form method="POST" action="/collections/<%=collection._id%>?_method=DELETE">
-                    <input class="delete" type="submit" value="Delete Collection" >
-                </form>
+    <div class="head-items-container">
+        <div class="body-head-items">
+            <div class="body-head-descr"><h4><%= collection.description %></h4></div>
+            <div class="body-head-btns">
+                <div class="top-btns">
+                    <a class="edit" href="/collections">Back</a>
+                    <a class="edit" href="/collections/<%=collection._id%>/edit">Edit</a>   
+                    <a class="add" href="/collections/<%=collection._id%>/addgames">Add Games</a>
+                </div> 
+                <div class="deleteColl">
+                    <form method="POST" action="/collections/<%=collection._id%>?_method=DELETE">
+                        <input class="delete" type="submit" value="Delete Collection" >
+                    </form>
+                </div>
             </div>
         </div>
     </div>
