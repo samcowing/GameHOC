@@ -203,6 +203,7 @@ router.get('/genres/:id', (req, res) => {
                     games: allGames.results,
                     genre: allGenres[req.params.id],
                     allGenres: Object.values(allGenres),
+                    genre: allGenres[currentGenre],
                     collections: foundCollections
                 })
             })
