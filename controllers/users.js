@@ -57,4 +57,15 @@ router.post('/registration', (req, res) => {
 })
 
 
+/******************************/
+/*        Logout Route        */
+/******************************/
+router.get('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) res.send(err)
+    })
+    res.redirect('/')
+})
+
+
 module.exports = router
