@@ -59,17 +59,32 @@ function queryAPI(gameId) {
 /*        New Route        */
 /***************************/
 router.get('/new', (req, res) => {
-    res.render('collections/new.ejs')
+    if (req.session.currentUser)
+    {
+        res.render('collections/new.ejs', {
+            user: req.session.currentUser
+        })
+    } else {
+        res.redirect('/prompt')
+    }
 })
 
 /*****************************/
 /*        Index Route        */
 /*****************************/
 router.get('/', (req, res)=> {
-    Collection.find({}, (err, allCollections) => {
-        if (err) return res.send(err)
-        res.render('collections/index.ejs', { collections: allCollections })
-    })
+    if (req.session.currentUser)
+    {
+        Collection.find({ owner: req.session.currentUser.username }, (err, allCollections) => {
+            if (err) return res.send(err)
+            res.render('collections/index.ejs', {
+                collections: allCollections,
+                user: req.session.currentUser
+            })
+        })
+    } else {
+        res.redirect('/prompt')
+    }
 })
 
 /****************************/
@@ -118,10 +133,20 @@ router.get('/:id/addgames', (req, res) => {
 /*        Create Route        */
 /******************************/
 router.post('/', (req, res)=> {
-    Collection.create(req.body, (err, newCollection) => {
-        if (err) return res.send(err)
-        res.redirect('collections')
-    })
+    if (req.session.currentUser)
+    {
+        const collectionDbEntry = {
+            title: req.body.title,
+            description: req.body.description,
+            owner: req.session.currentUser.username
+        }
+        Collection.create(collectionDbEntry, (err, newCollection) => {
+            if (err) return res.send(err)
+            res.redirect('collections')
+        })
+    } else {
+        res.send('Error: Not logged in')
+    }
 })
  
 /******************************/
