@@ -13,7 +13,7 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const allGenres = {
     '0': {
         id: "0",
-        name: 'Games',
+        name: 'All Games',
         description: "Sort by genres along the left navigation to search through games."
     },
     '4': {
