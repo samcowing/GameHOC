@@ -11,7 +11,7 @@
 
 * **Description**
     - A comprehensive database of games for users to browse by categories and learn more about selected games. Users can make collections and then save games to specific collections of their choice. Collections can be deleted or modified by the user.
-    - Key to the game data will be using the RAWR.io API (GET https://api.rawg.io/api/). The team has completed successful testing to ensure this will not be a potential blocker.
+    - Key to the game data will be using the RAWG.io API (GET https://api.rawg.io/api/). The team has completed successful testing to ensure this will not be a potential blocker.
 
 * **Wirefames**
 
