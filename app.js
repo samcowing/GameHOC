@@ -88,7 +88,9 @@ app.get('/', (req, res)=>{
 /*        Login Route        */
 /*****************************/
 app.get('/login', (req, res) => {
-    res.render('login.ejs')
+    res.render('login.ejs', {
+        user: req.session.currentUser
+    })
 })
 
 
@@ -96,7 +98,19 @@ app.get('/login', (req, res) => {
 /*        Signup Route        */
 /******************************/
 app.get('/signup', (req, res) => {
-    res.render('signup.ejs')
+    res.render('signup.ejs', {
+        user: req.session.currentUser
+    })
+})
+
+
+/*******************************************/
+/*        Login/Signup Prompt Route        */
+/*******************************************/
+app.get('/prompt', (req, res) => {
+    res.render('prompt.ejs', {
+        user: req.session.currentUser
+    })
 })
 
 

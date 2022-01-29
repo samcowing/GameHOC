@@ -59,9 +59,14 @@ function queryAPI(gameId) {
 /*        New Route        */
 /***************************/
 router.get('/new', (req, res) => {
-    res.render('collections/new.ejs', {
-        user: req.session.currentUser
-    })
+    if (req.session.currentUser)
+    {
+        res.render('collections/new.ejs', {
+            user: req.session.currentUser
+        })
+    } else {
+        res.redirect('/prompt')
+    }
 })
 
 /*****************************/
@@ -78,7 +83,7 @@ router.get('/', (req, res)=> {
             })
         })
     } else {
-        res.send('Please log in to view collections')
+        res.redirect('/prompt')
     }
 })
 

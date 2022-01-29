@@ -197,16 +197,27 @@ router.get('/genres/:id', (req, res) => {
         response.json().then((data) => {
             allGames = data
         }).then(() => {
-          Collection.find({}, (err, foundCollections) => {
-              if (err) return res.send(err)
+            if (req.session.currentUser)
+            {
+                Collection.find({ owner: req.session.currentUser.username }, (err, foundCollections) => {
+                  if (err) return res.send(err)
+                    res.render('games/index.ejs', {
+                        games: allGames.results,
+                        collections: foundCollections,
+                        allGenres: Object.values(allGenres),
+                        genre: allGenres[currentGenre],
+                        user: req.session.currentUser,
+                    })
+                })
+            } else {
                 res.render('games/index.ejs', {
                     games: allGames.results,
-                    collections: foundCollections,
+                    collections: [],
                     allGenres: Object.values(allGenres),
                     genre: allGenres[currentGenre],
                     user: req.session.currentUser,
                 })
-            })
+            }
         })
     })
 })
