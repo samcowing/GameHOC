@@ -26,18 +26,22 @@ header {
 
 }
   
-.logo-img, .logo-img-sidebar {
+.logo-img, .logo-img-sidebar, .logo-img-index {
     width: 45px;
     max-height: 45px; 
     min-height: 45px;
     border-radius: 0;
     margin-bottom: 0;
     box-shadow: none;
-    margin-left: -11px;
+    margin-left: 4px;
 }
 
 .logo-img-sidebar {
     margin-left: 0;
+}
+
+.logo-img-index {
+    margin-left: 4px;
 }
 
 .nav-a {
@@ -48,6 +52,9 @@ header {
     height: 30px;
     padding: 0 10px;
     font-size: 16px;
+    background-color: rgba(32, 32, 32, 0.8);
+    border: none;
+    border-radius: 8px;
 }
   
 .nav-a:hover {
