@@ -172,7 +172,7 @@
                                 <a class="dropdown-item" href="/collections/new">Create New Collection</a>
                                 <hr class="dropdown-line">
                                 <% for (let k = 0; k < collections.length; k++) { %>
-                                <a class="dropdown-item" href="/games/collection-add/<%= games[i].id %>/<%= collections[k]._id %>"><%= collections[k].title %>
+                                <a class="dropdown-item" href="/games/collection-add/<%= games[i].id %>/<%= collections[k]._id %>?path=/games/genres/<%= genre.id %>"><%= collections[k].title %>
                                     <% if(collections[k].games.some((element) => element.id == games[i].id)) { %>
                                     <i class="fa fa-check"></i>
                                     <% } %>

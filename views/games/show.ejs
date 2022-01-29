@@ -232,12 +232,21 @@
                         </a>
                         
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">Create New Collection</a>
+                            <a class="dropdown-item" href="/collections/new">Create New Collection</a>
                             <hr class="dropdown-line">
+                            <% for (let k = 0; k < collections.length; k++) { %>
+                            <a class="dropdown-item" href="/games/collection-add/<%= game.id %>/<%= collections[k]._id %>?path=/games/<%= game.id %>"><%= collections[k].title %>
+                                <% if(collections[k].games.some((element) => element.id == game.id)) { %>
+                                <i class="fa fa-check"></i>
+                                <% } %>
+                            </a>
+                            <% } %>
+                            <!--
                             <a class="dropdown-item example-item" href="#">Collection 1
                                 <i class="fa fa-check"></i>
                             </a>
                             <a class="dropdown-item" href="#">Collection 2</a>
+                            -->
                         </div>
                     </div>
                     
