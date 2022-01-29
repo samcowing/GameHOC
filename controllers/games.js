@@ -197,16 +197,27 @@ router.get('/genres/:id', (req, res) => {
         response.json().then((data) => {
             allGames = data
         }).then(() => {
-          Collection.find({}, (err, foundCollections) => {
-              if (err) return res.send(err)
+            if (req.session.currentUser)
+            {
+                Collection.find({ owner: req.session.currentUser.username }, (err, foundCollections) => {
+                  if (err) return res.send(err)
+                    res.render('games/index.ejs', {
+                        games: allGames.results,
+                        collections: foundCollections,
+                        allGenres: Object.values(allGenres),
+                        genre: allGenres[currentGenre],
+                        user: req.session.currentUser,
+                    })
+                })
+            } else {
                 res.render('games/index.ejs', {
                     games: allGames.results,
-                    genre: allGenres[req.params.id],
+                    collections: [],
                     allGenres: Object.values(allGenres),
                     genre: allGenres[currentGenre],
-                    collections: foundCollections
+                    user: req.session.currentUser,
                 })
-            })
+            }
         })
     })
 })
@@ -233,10 +244,25 @@ router.get('/:id', (req, res) => {
                 else
                     gameScreenshots = games.results[index].short_screenshots
 
-                res.render('games/show.ejs', {
-                    game: currentGame,
-                    screenshots: gameScreenshots
-                })
+                if (req.session.currentUser)
+                {
+                    Collection.find({ owner: req.session.currentUser.username }, (err, foundCollections) => {
+                      if (err) return res.send(err)
+                        res.render('games/show.ejs', {
+                            game: currentGame,
+                            screenshots: gameScreenshots,
+                            collections: foundCollections,
+                            user: req.session.currentUser,
+                        })
+                    })
+                } else {
+                    res.render('games/show.ejs', {
+                        game: currentGame,
+                        screenshots: gameScreenshots,
+                        collections: [],
+                        user: req.session.currentUser,
+                    })
+                }
             })
         }))
     })
@@ -262,10 +288,16 @@ router.get('/collection-add/:gameId/:collectionId', (req, res) => {
                 if (!duplicate) {
                     Collection.findByIdAndUpdate(req.params.collectionId, newGame, { new: true }, (err, updatedCollection) => {
                         if (err) return res.send(err)
-                        res.redirect(`/games/genres/${currentGenre}`)
+                        console.log(req.originalUrl)
+                        console.log(req.query)
+                        res.redirect(req.query.path)
+//                        res.redirect(`/games/genres/${currentGenre}`)
                     })
                 } else {
-                    res.redirect(`/games/genres/${currentGenre}`)
+                    console.log(req.query.path)
+                    console.log(req.query)
+                    res.redirect(req.query.path)
+//                    res.redirect(`/games/genres/${currentGenre}`)
                 }
             })
         })

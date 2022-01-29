@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <div class="wrapper">
+        
+        <nav id="sidebar">
+            
+            <button class="dismiss btn btn-dark shadow-none" type="button" id="dismissSidebar" onclick="document.getElementById('sidebar').classList.toggle('active');">
+                <span>Close</span>
+                <i class="fa fa-bars"></i>
+            </button>
+            
+            <div class="sidebar-header">
+                <h2 class="logo-title">
+                    <img class="logo-img" src="https://i.imgur.com/OOQYC8l.png" alt="GameHOC logo">
+                    GameHOC
+                </h2>
+            </div>
+            
+            <ul class="page-list">
+                <li class="">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <% if (user) { %>
+                        <a href="#user-profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><%= user.username %></a>
+                    <% } else { %>
+                        <a href="#user-profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Profile</a>
+                    <% } %>
+                    <ul class="collapse user-list" id="user-profile">
+                        <li>
+                            <a href="/collections">My Collections</a>
+                        </li>
+                        <% if (user) { %>
+                            <li>
+                                <a href="/auth/logout">Log Out</a>
+                            </li>
+                        <% } else { %>
+                            <li>
+                                <a href="/login">Log In</a>
+                            </li>
+                            <li>
+                                <a href="/signup">Sign Up</a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/">Newest Releases</a>
+                </li>
+                <li>
+                    <a href="/">Top Rated</a>
+                </li>
+                <li>
+                    <a href="/games">All Games</a>
+                </li>
+                <li>
+                    <a href="#genres" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Genres</a>
+                    <ul class="collapse genre-list" id="genres">
+                        <li>
+                            <a href="/games/genres/1">Racing</a>
+                        </li>
+                        <li>
+                            <a href="/games/genres/2">Shooter</a>
+                        </li>
+                        <li>
+                            <a href="/games/genres/4">Action</a>
+                        </li>
+                        <li>
+                            <a href="/games/genres/5">RPG</a>
+                        </li>
+                        <li>
+                            <a href="/games/genres/6">Fighting</a>
+                        </li>
+                        <li>
+                            <a href="/games/genres/15">Sports</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        
+        <header>
+            <button class="nav-a btn btn-dark shadow-none" type="button" id="sidebarCollapse" onclick="document.getElementById('sidebar').classList.toggle('active');">
+                <i class="fa fa-bars"></i>
+                <span>Navigation</span>
+            </button>
+            <div class="logo">
+                <h2 class="logo-title">
+                    <img class="logo-img" src="https://i.imgur.com/OOQYC8l.png" alt="">
+                    GameHOC
+                </h2>
+            </div>
+        </header>
+
+    <h1>Login</h1>
+    <h4>Login</h4>
+    <form action="/auth/login" method="POST">
+        <input type="text" name="username" placeholder="username" /><br />
+        <input type="password" name="password" placeholder="password" /><br />
+        <button type="submit">Login</button>
+    </form>
+</body>
+
+</html>
