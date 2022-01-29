@@ -431,6 +431,9 @@ header {
   height: 30px;
   padding: 0 10px;
   font-size: 16px;
+  background-color: rgba(32, 32, 32, 0.8);
+  border: none;
+  border-radius: 8px;
 }
 
 .nav-a:hover {
@@ -528,8 +531,6 @@ ul ul a {
     font-size: 16px;
     margin-bottom: 8px;
 }
-
-
 
 @media (min-width: 1120px) {
 
