@@ -581,6 +581,8 @@ a:focus {
     border-radius: 8px;
     margin-bottom: 40px;
     text-align: center;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
 #sidebar ul li a {

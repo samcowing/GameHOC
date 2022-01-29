@@ -10,6 +10,7 @@
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/games-css/show.css">
+    <link rel="shortcut icon" href="https://i.imgur.com/OOQYC8l.png" type="image/x-icon">
     <title>
         <%=game.name%>
     </title>
@@ -21,7 +22,7 @@
         
         <nav id="sidebar">
             
-            <button class="dismiss btn btn-dark" type="button" id="dismissSidebar" onclick="document.getElementById('sidebar').classList.toggle('active');">
+            <button class="dismiss btn btn-dark shadow-none" type="button" id="dismissSidebar" onclick="document.getElementById('sidebar').classList.toggle('active');">
                 <span>Close</span>
                 <i class="fa fa-bars"></i>
             </button>
@@ -85,7 +86,7 @@
         
         <header>
             <!-- <div class="large-nav"> -->
-            <button class="nav-a btn btn-dark" type="button" id="sidebarCollapse" onclick="document.getElementById('sidebar').classList.toggle('active');">
+            <button class="nav-a btn btn-dark shadow-none" type="button" id="sidebarCollapse" onclick="document.getElementById('sidebar').classList.toggle('active');">
                 <i class="fa fa-bars"></i>
                 <span>Navigation</span>
             </button>
@@ -191,7 +192,7 @@
                 
                 <div class="button-groups">
                     <div class="dropdown-container">
-                        <a class="collection-button btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="collection-button btn btn-secondary dropdown-toggle shadow-none" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 172 172" style=" fill:#fff;">
                                 <g transform="translate(11.008,11.008) scale(0.872,0.872)">
                                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -244,8 +245,11 @@
                     <div id="long-desc-container">
                         <span class="desc-full" id="desc-full"><%-game.description%></span>
                     </div>
-                    <button id="show-btn" class="btn btn-sm" onclick="document.getElementById('short-desc-container').style.display = 'none'; document.getElementById('long-desc-container').style.display = 'block';; document.getElementById('hide-btn').style.display = 'block';document.getElementById('show-btn').style.display = 'none'">Show more</button>
-                    <button id="hide-btn" class="btn btn-sm" onclick="document.getElementById('short-desc-container').style.display = 'block'; document.getElementById('long-desc-container').style.display = 'none'; document.getElementById('hide-btn').style.display = 'none';document.getElementById('show-btn').style.display = 'block'">Show less</button>
+                    
+                    <button id="show-btn" class="btn btn-sm shadow-none" onclick="document.getElementById('short-desc-container').style.display = 'none'; document.getElementById('long-desc-container').style.display = 'block';; document.getElementById('hide-btn').style.display = 'block';document.getElementById('show-btn').style.display = 'none'">Show more</button>
+                    
+                    <button id="hide-btn" class="btn btn-sm shadow-none" onclick="document.getElementById('short-desc-container').style.display = 'block'; document.getElementById('long-desc-container').style.display = 'none'; document.getElementById('hide-btn').style.display = 'none';document.getElementById('show-btn').style.display = 'block'">Show less</button>
+                    
                 </div>
                 
                 <div class="extra-data">
