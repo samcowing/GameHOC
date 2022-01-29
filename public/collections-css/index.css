@@ -18,9 +18,14 @@ img {
     max-width: 160px;
 }
 
-.body-head-container {
+.head-container {
     color: white;
     background-color: rgba(65, 65, 65, 0.8)
+}
+
+.body-head-container {
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
 .body-head-title {
