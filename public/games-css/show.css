@@ -431,6 +431,9 @@ header {
   height: 30px;
   padding: 0 10px;
   font-size: 16px;
+  background-color: rgba(32, 32, 32, 0.8);
+  border: none;
+  border-radius: 8px;
 }
 
 .nav-a:hover {
@@ -529,8 +532,6 @@ ul ul a {
     margin-bottom: 8px;
 }
 
-
-
 @media (min-width: 1120px) {
 
 a,
@@ -581,6 +582,8 @@ a:focus {
     border-radius: 8px;
     margin-bottom: 40px;
     text-align: center;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
 #sidebar ul li a {

@@ -6,14 +6,13 @@ const mongoose = require('mongoose')
 
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-
 /***************************/
 /*        Constants        */
 /***************************/
 const allGenres = {
     '0': {
         id: "0",
-        name: 'Games',
+        name: 'All Games',
         description: "Sort by genres along the left navigation to search through games."
     },
     '4': {
@@ -196,15 +195,15 @@ router.get('/genres/:id', (req, res) => {
     const query = categorySelect('genres', req.params.id)
     fetch(query).then((response) => {
         response.json().then((data) => {
-            console.log("Results:", data.results.length)
             allGames = data
         }).then(() => {
-            Collection.find({}, (err, foundCollections) => {
-                if (err) return res.send(err)
+          Collection.find({}, (err, foundCollections) => {
+              if (err) return res.send(err)
                 res.render('games/index.ejs', {
                     games: allGames.results,
                     genre: allGenres[req.params.id],
                     allGenres: Object.values(allGenres),
+                    genre: allGenres[currentGenre],
                     collections: foundCollections
                 })
             })
