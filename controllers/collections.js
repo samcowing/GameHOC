@@ -94,12 +94,14 @@ router.get('/:id',(req, res)=> {
             getGames(foundCollection.games).then((gamesArr) => {
                 res.render('collections/show.ejs', { 
                     collection: foundCollection,
-                    games: gamesArr 
+                    games: gamesArr, 
+                    user: req.session.currentUser
                 })
             })
         } else {
             res.render('collections/show.ejs', { 
                 collection: foundCollection,
+                user: req.session.currentUser
             })
         }
     })

@@ -34,11 +34,27 @@
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="#user-profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Profile</a>
+                    <% if (user) { %>
+                        <a href="#user-profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><%= user.username %></a>
+                    <% } else { %>
+                        <a href="#user-profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Profile</a>
+                        <% } %>
                     <ul class="collapse user-list" id="user-profile">
                         <li>
                             <a href="/collections">My Collections</a>
                         </li>
+                        <% if (user) { %>
+                            <li>
+                                <a href="/auth/logout">Log Out</a>
+                            </li>
+                        <% } else { %>
+                            <li>
+                                <a href="/login">Log In</a>
+                            </li>
+                            <li>
+                                <a href="/signup">Sign Up</a>
+                            </li>
+                        <% } %>
                     </ul>
                 </li>
                 <li>
