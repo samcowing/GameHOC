@@ -3,9 +3,6 @@ const express = require('express');
 const { resolve } = require('path/posix');
 const router = express.Router()
 const Collection = require('../models/Collection');
-const { db, collection } = require('../models/Game');
-const Game = require('../models/Game');
-const { route } = require('./games');
 const moment = require('moment');
 
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
