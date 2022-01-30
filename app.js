@@ -13,7 +13,7 @@ require('dotenv').config()
 
 const PORT = process.env.PORT
 
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 /*********************************/
 /*        Mongoose Config        */
@@ -38,7 +38,7 @@ app.locals.moment = require('moment');
 /****************************/
 app.use(express.static('public'));
 app.use(methodOverride('_method'))
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 app.use(
     session({
         secret: process.env.SECRET,
@@ -63,7 +63,7 @@ app.use('/auth', usersController)
 const query = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19&ordering=-rating&metacritic=50,100"
 const query2 = "https://api.rawg.io/api/games?key=b37c07aab35b44058235af257c65be19&ordering=-released&dates=2021-01-27," + moment().format("YYYY-MM-DD") + "&metacritic=50,100"
 
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     fetch(query).then((response) => {
         response.json().then((data) => {
             topRated = data.results
@@ -87,7 +87,7 @@ app.get('/', (req, res)=>{
 /*        Login Route        */
 /*****************************/
 app.get('/login', (req, res) => {
-    res.render('login.ejs', {
+    res.render('users/login.ejs', {
         user: req.session.currentUser
     })
 })
@@ -97,7 +97,7 @@ app.get('/login', (req, res) => {
 /*        Signup Route        */
 /******************************/
 app.get('/signup', (req, res) => {
-    res.render('signup.ejs', {
+    res.render('users/signup.ejs', {
         user: req.session.currentUser
     })
 })
@@ -107,7 +107,7 @@ app.get('/signup', (req, res) => {
 /*        Login/Signup Prompt Route        */
 /*******************************************/
 app.get('/prompt', (req, res) => {
-    res.render('prompt.ejs', {
+    res.render('users/prompt.ejs', {
         user: req.session.currentUser
     })
 })
@@ -116,4 +116,4 @@ app.get('/prompt', (req, res) => {
 /****************************/
 /*        Server Init       */
 /****************************/
-app.listen(PORT, ()=>console.log('Listening on port:', PORT))
+app.listen(PORT, () => console.log('Listening on port:', PORT))
