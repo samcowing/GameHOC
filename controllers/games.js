@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const Game = require('../models/Game')
 const Collection = require('../models/Collection')
 const mongoose = require('mongoose')
 
@@ -24,11 +23,6 @@ const allGenres = {
         id: "51",
         name: 'Indie',
         description: "Indie is one of the vaguest categories in video games. Generally, it describes any title developed by independent (thus the name) studio which means that game's launch was not powered with publisher's funds or any financial support other than crowdfunding. The genre is kickstarted mainly because of the variety of crowd-funding policies and many early-access platforms like Steam Greenlight. A corporation does not develop indies, so primarily the genre is associated with single developers or small studios. Lacking the budget, indie games are mostly shorter and lesser than their publisher-financed competitors. Such titles, therefore, bear no attachment to censorship regulations and can express whatever authors wish. It is worth to mention that a large portion of adult games is indie. The rules above can be applied to the most games; however, not all. Some titles may feature publisher, but it cannot affect the final product. Some specific examples of indie are World of Goo, Undertale, and Braid."
-    },
-    '3': {
-        id: "3",
-        name: 'Adventure',
-        description: "An adventure game is a genre in which the player performs as a protagonist. It is usually supported by puzzle-solving, gathering items, dialogues, and intervening goals. Adventure focus on story, many of them are designed for a single player. Colossal Cave Adventure is known as the first of the genre, released in 1976. They rocketed in the 1980s; later it led to the appearance of independent video game developers. The Walking Dead by TellTale Games is considered as the game which renewed the whole genre. It has a revolutionary mechanics which change the gameplay as the players make their choices. These games are still favorite among the users; independent developers start crowd-funding companies to raise money; the genre is celebrated on practically any platform."
     },
     '5': {
         id: "5",
@@ -127,7 +121,7 @@ let currentGenre = '0';
 /*****************************/
 /*        API Request        */
 /*****************************/
-function categorySelect(type, id = '0', page = '1', page_size = '100', ordering = '-released',
+function categorySelect(type, id = '0', screenshots = false, page = '1', page_size = '100', ordering = '-released',
     metacritic = '50,100') {
     let requestURL = ''
     switch (type) {
@@ -143,41 +137,20 @@ function categorySelect(type, id = '0', page = '1', page_size = '100', ordering 
             }
             break;
         case ('id'):
-            requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19"
-                + "&ordering=" + ordering + "&page_size=" + page_size + "&page=" + page
-                + "&metacritic=" + metacritic
+            if (!screenshots)
+            {
+                requestURL = "https://api.rawg.io/api/games/" + id + "?key=b37c07aab35b44058235af257c65be19"
+                    + "&ordering=" + ordering + "&page_size=" + page_size + "&page=" + page
+                    + "&metacritic=" + metacritic
+            } else {
+                requestURL = "https://api.rawg.io/api/games/" + id + "/screenshots"  + "?key=b37c07aab35b44058235af257c65be19"
+                    + "&ordering=" + ordering + "&page_size=10" + "&page=" + page
+                    + "&metacritic=" + metacritic
+            }
             break;
     }
     return requestURL
 }
-
-function clearDB() {
-    return new Promise((resolve, reject) => {
-        Game.deleteMany({}, (err, deleteCount) => {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log(`Deleted return ${deleteCount}`)
-                resolve()
-            }
-        })
-    })
-}
-
-function queryAPI(requestURL) {
-    return new Promise((resolve, reject) => {
-        fetch(requestURL).then((response) => {
-            response.json().then((data) => {
-                Game.insertMany(data.results, (err, createdGames) => {
-                    if (err) return console.log(err)
-                    console.log('populating with ' + data.results.length + ' games')
-                    resolve()
-                })
-            })
-        })
-    })
-}
-
 
 
 /*****************************/
@@ -227,30 +200,23 @@ router.get('/genres/:id', (req, res) => {
 /****************************/
 router.get('/:id', (req, res) => {
     let currentGame
-    let gameScreenshots = []
 
     const query = categorySelect('id', req.params.id)
-    const imgQuery = categorySelect('genres', currentGenre)
+    const imgQuery = categorySelect('id', req.params.id, true)
 
     fetch(query).then((response) => {
         response.json().then((gameObj) => {
             currentGame = gameObj
         }).then(fetch(imgQuery).then((response) => {
-            response.json().then((games) => {
-                const index = games.results.findIndex(element => element.id === currentGame.id)
-
-                if (index < 0)
-                    gameScreenshots.length = 0
-                else
-                    gameScreenshots = games.results[index].short_screenshots
+            response.json().then((gameScreenshots) => {
 
                 if (req.session.currentUser)
                 {
                     Collection.find({ owner: req.session.currentUser.username }, (err, foundCollections) => {
-                      if (err) return res.send(err)
+                        if (err) return res.send(err)
                         res.render('games/show.ejs', {
                             game: currentGame,
-                            screenshots: gameScreenshots,
+                            screenshots: gameScreenshots.results,
                             collections: foundCollections,
                             user: req.session.currentUser,
                         })
@@ -258,7 +224,7 @@ router.get('/:id', (req, res) => {
                 } else {
                     res.render('games/show.ejs', {
                         game: currentGame,
-                        screenshots: gameScreenshots,
+                        screenshots: gameScreenshots.results,
                         collections: [],
                         user: req.session.currentUser,
                     })
@@ -291,13 +257,11 @@ router.get('/collection-add/:gameId/:collectionId', (req, res) => {
                         console.log(req.originalUrl)
                         console.log(req.query)
                         res.redirect(req.query.path)
-//                        res.redirect(`/games/genres/${currentGenre}`)
                     })
                 } else {
                     console.log(req.query.path)
                     console.log(req.query)
                     res.redirect(req.query.path)
-//                    res.redirect(`/games/genres/${currentGenre}`)
                 }
             })
         })

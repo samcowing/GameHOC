@@ -197,12 +197,11 @@
                         
                         <h5 class="genre-text">Genres:
                             <p class="genre-names">
-                                <% for (let j=0; (j<3 && j < games[i].genres.length); j++) { %>
-                                <% if(j < 3) { %>
-                                <%= games[i].genres[j].name + ',' %>
-                                <% } else { %>
-                                <%= games[i].genres[j].name %>
-                                <% } %>
+                                <% if(games[i].genres.length > 0) { %>
+                                    <% for (let j = 1; (j < 3 && j < games[i].genres.length); j++) { %>
+                                        <%=games[i].genres[j].name%>,
+                                    <% } %>
+                                    <%=games[i].genres[0].name%>
                                 <% } %>
                             </p>
                         </h5>
@@ -210,12 +209,11 @@
                         
                         <h5 class="platform-text">Platforms:
                             <p class="platform-list">
-                                <% for (let k=0; (k<3 && k < games[i].parent_platforms.length); k++) { %>
-                                <% if ( k < games[i].parent_platforms.length - 1) { %>
-                                <%= games[i].parent_platforms[k].platform.name + ',' %>
-                                <% } else { %>
-                                <%= games[i].parent_platforms[k].platform.name %>
-                                <% } %>
+                                <% if(games[i].parent_platforms.length > 0) { %>
+                                    <% for (let k = 1; (k < 3 && k < games[i].parent_platforms.length); k++) { %>
+                                        <%=games[i].parent_platforms[k].platform.name%>,
+                                    <% } %>
+                                    <%=games[i].parent_platforms[0].platform.name%>
                                 <% } %>
                             </p>
                         </h5>
