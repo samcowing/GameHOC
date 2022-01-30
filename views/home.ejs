@@ -184,12 +184,11 @@
                         
                         <h5 class="genre-text">Genres:
                             <p class="genre-names">
-                                <% for (let j=0; (j<3 && j < newReleases[i].genres.length); j++) { %>
-                                <% if( j < newReleases[i].genres.length - 1) { %>
-                                <%= newReleases[i].genres[j].name + ',' %>
-                                <% } else { %>
-                                <%= newReleases[i].genres[j].name %>
-                                <% } %>
+                                <% if(newReleases[i].genres.length > 0) { %>
+                                    <% for (let j = 1; (j < 3 && j < newReleases[i].genres.length); j++) { %>
+                                        <%=newReleases[i].genres[j].name%>,
+                                    <% } %>
+                                    <%=newReleases[i].genres[0].name%>
                                 <% } %>
                             </p>
                         </h5>
@@ -197,12 +196,11 @@
                         
                         <h5 class="platform-text">Platforms:
                             <p class="platform-list">
-                                <% for (let k=0; (k<3 && k < newReleases[i].parent_platforms.length); k++) { %>
-                                <% if ( k < newReleases[i].parent_platforms.length - 1) { %>
-                                <%= newReleases[i].parent_platforms[k].platform.name + ',' %>
-                                <% } else { %>
-                                <%= newReleases[i].parent_platforms[k].platform.name %>
-                                <% } %>
+                                <% if(newReleases[i].parent_platforms.length > 0) { %>
+                                    <% for (let k = 1; (k < 3 && k < newReleases[i].parent_platforms.length); k++) { %>
+                                        <%=newReleases[i].parent_platforms[k].platform.name%>,
+                                    <% } %>
+                                    <%=newReleases[i].parent_platforms[0].platform.name%>
                                 <% } %>
                             </p>
                         </h5>
