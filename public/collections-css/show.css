@@ -13,12 +13,60 @@ img {
     min-height: 124px;
 }
 
+header {
+    color: white;
+    box-shadow: 1px 9px 7px -4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(15, 15, 15, 0.5);
+    position: relative;
+    border-radius: 8px;
+}
+
+.logo {
+    font-size: 20px;
+    font-family: "Ubuntu", cursive;
+    font-weight: 400;
+    text-align: center;
+}
+
+.logo-title {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 8;
+}
+
+.logo-img {
+    width: 45px;
+    max-height: 45px; 
+    min-height: 45px;
+    border-radius: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    margin-left: 4px;
+}
+
+.nav-a {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: auto;
+    height: 30px;
+    padding: 0 10px;
+    font-size: 16px;
+    background-color: rgba(32, 32, 32, 0.8);
+    border: none;
+    border-radius: 8px;
+}
+  
+.nav-a:hover {
+    text-decoration: none;
+}
+
 .img-lg {
     display: none;
 }
 
 .head-container {
-    background-color: rgba(65, 65, 65, 0.8);
+    background-color: rgba(32, 32, 32, 0.8);
 }
 
 .body-head-container {
@@ -36,7 +84,7 @@ img {
     text-align: center;
     color: white;
     margin-right: 5%;
-    margin-left: 5%;
+    /* margin-left: 5%; */
 }
 
 .deleteColl { 
@@ -90,7 +138,7 @@ img {
     display: inline-flex;
     padding-top: 20px;
     margin: auto;
-    width: 45%;
+    width: 18em;
 }
 
 .card {
@@ -185,6 +233,16 @@ img {
         margin-bottom: 20px;
         max-width: 280px;
     }
+
+    .head-container {
+        width: 65%;
+        margin: 0 auto;
+        margin-top: 20px;
+        padding-top: 10px;
+        padding-bottom: 3px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
   
     .body-head-container {
         color: white;
@@ -192,14 +250,23 @@ img {
     
     .body-head-title {
         padding-top: 20px;
-        text-align: left;
-        margin-left: 5%;
+        margin: 0 auto;
+    }
+
+    .body-head-descr {
+        margin-left: 3.5%;
+        font-size: 18px;
+    }
+
+    .head-items-container {
+        width: 70%;
+        margin: 0 auto;
     }
 
     .body-head-items {
         display: flex;
         justify-content: space-between;
-        width: 79%;
+        width: 95%;
     }
 
     .body-head-btns {
@@ -217,9 +284,9 @@ img {
     }
 
     .body-head-descr {
-        padding-right: 40px;
+        /* padding-right: 40px; */
         text-align: left;
-        padding-top: 18px;
+        padding-top: 25px;
     }
     
     .body-head-btns {
@@ -230,7 +297,7 @@ img {
         display: flex;
         margin: auto;
         margin-bottom: 20px;
-        width: 90%;
+        width: 75%;
         align-items: unset;
         flex-flow: row;
     
@@ -322,7 +389,6 @@ img {
         width: unset;
         padding-top: 10px;
     }
-
 }
   
 @media (max-width: 450px) {
