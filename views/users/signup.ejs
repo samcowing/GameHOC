@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/users-css/signup.css">
+    <link rel="shortcut icon" href="https://i.imgur.com/OOQYC8l.png" type="image/x-icon">
+    <title>Register</title>
 </head>
 
 <body>
@@ -20,8 +26,8 @@
             </button>
             
             <div class="sidebar-header">
-                <h2 class="logo-title">
-                    <img class="logo-img" src="https://i.imgur.com/OOQYC8l.png" alt="GameHOC logo">
+                <h2 class="nav-logo-title">
+                    <img class="nav-logo-img" src="https://i.imgur.com/OOQYC8l.png" alt="GameHOC logo">
                     GameHOC
                 </h2>
             </div>
@@ -32,25 +38,25 @@
                 </li>
                 <li>
                     <% if (user) { %>
-                        <a href="#user-profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><%= user.username %></a>
+                    <a href="#user-profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><%= user.username %></a>
                     <% } else { %>
-                        <a href="#user-profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Profile</a>
+                    <a href="#user-profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User Profile</a>
                     <% } %>
                     <ul class="collapse user-list" id="user-profile">
                         <li>
                             <a href="/collections">My Collections</a>
                         </li>
                         <% if (user) { %>
-                            <li>
-                                <a href="/auth/logout">Log Out</a>
-                            </li>
+                        <li>
+                            <a href="/auth/logout">Log Out</a>
+                        </li>
                         <% } else { %>
-                            <li>
-                                <a href="/login">Log In</a>
-                            </li>
-                            <li>
-                                <a href="/signup">Sign Up</a>
-                            </li>
+                        <li>
+                            <a href="/login">Log In</a>
+                        </li>
+                        <li>
+                            <a href="/signup">Sign Up</a>
+                        </li>
                         <% } %>
                     </ul>
                 </li>
@@ -97,20 +103,37 @@
             <div class="logo">
                 <h2 class="logo-title">
                     <img class="logo-img" src="https://i.imgur.com/OOQYC8l.png" alt="">
-                    GameHOC
+                    <!-- GameHOC -->
                 </h2>
             </div>
         </header>
-
-    <h1>Register</h1>
-    <h4>Create an Account</h4>
-    <form action="/auth/registration" method="POST">
-        <input type="text" name="username" placeholder="username" /><br />
-        <input type="email" name="email" placeholder="email" /><br />
-        <input type="password" name="password" placeholder="password" /><br />
-        <button type="submit">Login</button>
-    </form>
-
+        
+        <main>
+            <div class="signup-container">
+                <h1 class="signup-title">Register</h1>
+                <form class="signup-form" action="/auth/registration" method="POST">
+                    
+                    <!-- <label for="email" class="email-text">Email</label> -->
+                    <input class="email" type="email" name="email" placeholder="Email" required />
+                    
+                    <!-- <label for="username" class="username-text">Username</label> -->
+                    <input class="username" type="text" name="Username" placeholder="Username" required />
+                    
+                    <!-- <label for="password" class="password-text">Password</label> -->
+                    <input class="password" type="password" name="password" placeholder="Password" required />
+                    
+                    <button class="login-submit btn btn-dark shadow-none" type="submit">Create Account</button>
+                </form>
+            </div>
+            
+            <a class="signup-link" href="/login">Already have an account? Login here.</a>
+        </main>
+        
+        
+        <!-- BOOTSTRAP -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    </div>
 </body>
 
 </html>
