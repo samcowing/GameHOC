@@ -11,16 +11,13 @@ const moment = require('moment');
 
 require('dotenv').config()
 
-const PORT = process.env.PORT || 8000
-require('./db')
+const PORT = process.env.PORT
 
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 /*********************************/
 /*        Mongoose Config        */
 /*********************************/
-
-/*
 const mongoose = require('mongoose')
 const mongoURI = process.env.MONGODBURI || 'mongodb+srv://samcowing:tVismov64iDC56Db@cluster0.jyvo0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
@@ -28,7 +25,6 @@ mongoose.connect(mongoURI)
 mongoose.connection.on('connected', () => {
     console.log('connected to mongoDB')
 })
-*/
 
 
 /************************/
