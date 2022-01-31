@@ -13,6 +13,9 @@
     "mongoose": "^6.1.8",
     "node-fetch": "^3.2.0"
   },
+  "engines": {
+    "node": "17.3.1"
+  },
   "name": "gamehoc",
   "description": "## GameHOC Pitch: * **Team: It Works on Local**     - Joshua Hovis     - David Oliveros     - Sam Cowing",
   "version": "1.0.0",
