@@ -23,6 +23,8 @@
     ![Insert Image here](https://i.imgur.com/Ya2mZuo.png)
     ![Insert Image here](https://i.imgur.com/QSBToYC.png)
 
+* **Technologies Used**
+    - bootstrap, node.js, ejs, node-fetch, express, express-sessions, b-crypt, moment
 
 * **Key features**
     - Homepage of specific featured (new/trending) games
@@ -34,6 +36,17 @@
     - User will be able to add games to a collection from any game category or detail page
     - Ability to login or create an account
     - Genre overview on specific genres page
+
+* **Future features**
+    - Parallel fetch request
+    - Add to collections update from GET to POST
+    - Login user notifications (especially for login-fail)
+    - Search bar functionality
+    - Adding review to game and viewing other reviews on game detail page
+    - Related games (games in series or most matching genres
+    - Update game rating based off of review rating
+    - Added homepage features
+    - Footer with API credit
 
 * **ERD**
 
