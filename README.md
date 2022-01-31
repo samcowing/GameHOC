@@ -17,9 +17,11 @@
 
 * **Screenshots**
 
-    ![Insert Image here](https://i.imgur.com/7atlBMV.png)
-    ![Insert Image here](https://i.imgur.com/1Qf8HOG.png)
-    ![Insert Image here](https://i.imgur.com/PsTbWTq.png)
+    ![Insert Image here](https://i.imgur.com/mvJeIFZ.png)
+    ![Insert Image here](https://i.imgur.com/241d65L.png)
+    ![Insert Image here](https://i.imgur.com/mYkaUTD.png)
+    ![Insert Image here](https://i.imgur.com/Ya2mZuo.png)
+    ![Insert Image here](https://i.imgur.com/QSBToYC.png)
 
 
 * **Key features**
