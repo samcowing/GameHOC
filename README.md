@@ -24,7 +24,7 @@
     ![Insert Image here](https://i.imgur.com/QSBToYC.png)
 
 * **How to install**
- - Install For install, simply fork and clone the github repository https://github.com/samcowing/Sam-Cowing-Project-1-Checkers. Once on your local, install the technologies used below (with the exception of bootstrap with is already included). 
+    - Install For install, simply fork and clone the github repository https://github.com/samcowing/Sam-Cowing-Project-1-Checkers. Once on your local, install the technologies used below (with the exception of bootstrap with is already included). 
 
 * **Technologies Used**
     - bootstrap, node.js, ejs, node-fetch, express, express-sessions, b-crypt, moment
