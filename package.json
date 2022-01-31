@@ -13,6 +13,10 @@
     "mongoose": "^6.1.8",
     "node-fetch": "^3.2.0"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
   "engines": {
     "node": "17.3.1"
   },
@@ -20,10 +24,6 @@
   "description": "## GameHOC Pitch: * **Team: It Works on Local**     - Joshua Hovis     - David Oliveros     - Sam Cowing",
   "version": "1.0.0",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samcowing/GameHOC.git"
