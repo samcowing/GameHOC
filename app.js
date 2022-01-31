@@ -19,7 +19,7 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 /*        Mongoose Config        */
 /*********************************/
 const mongoose = require('mongoose')
-const mongoURI = process.env.MONGODBURI || 'mongodb+srv://samcowing:tVismov64iDC56Db@cluster0.jyvo0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongoURI = process.env.MONGODBURI || 'mongodb+srv://samcowing:tVismov64iDC56Db@cluster0.jyvo0.mongodb.net/gamehoc?retryWrites=true&w=majority'
 
 mongoose.connect(mongoURI)
 mongoose.connection.on('connected', () => {
