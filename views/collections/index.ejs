@@ -153,8 +153,12 @@
                             <form method="POST" action="/collections/<%=collections[i]._id%>?_method=DELETE">
                                 <input class="delete" type="submit" value="Delete Collection">
                             </form>
-                            <a class="edit" href="/collections/<%=collections[i]._id%>/edit">Edit Collection</a> <br />
-                            <a class="edit" href="/collections/<%=collections[i]._id%>">View Collection</a>
+                            <div class="edit-container">
+                                <a class="edit" href="/collections/<%=collections[i]._id%>/edit">Edit Collection</a> <br />
+                            </div>
+                            <div class="edit-container">
+                                <a class="edit" href="/collections/<%=collections[i]._id%>">View Collection</a>
+                            </div>
                         </div>
                     </div>
                 </div>
